@@ -1,5 +1,15 @@
 # TIL
 Today I learned...
+2021.06.16
+Control Transfer Statements, Labeled Statements
+Control Transfer Statements : 제어전달문. 흐름제어구문. 조건문과 반복문에서 일반적인 코드의 흐름을 바꾸기 위해 사용
+break Statement : 현재 실행 중인 문장을 중지하고 다음 문장을 실행
+Continue Statement : continue는 현재 실행중인 반복을 중지하고 다음 반복을 실행한다. 
+Labeled Statemetn
+Label: statement
+break Label
+continue Label
+
 2021.06.14
 Token
 -가장 작은 요소
@@ -57,9 +67,6 @@ print(name)
 
 year
 print(year)
-
-kSecTrustRevocationValidUntilDate
-print(kSecTrustRevocationValidUntilDate)
 
 x
 print(x)v
