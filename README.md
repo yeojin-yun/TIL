@@ -9,6 +9,7 @@ Labeled Statemetn
 Label: statement
 break Label
 continue Label
+Test
 
 2021.06.14
 Token
