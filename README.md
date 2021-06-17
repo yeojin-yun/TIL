@@ -1,5 +1,14 @@
 # TIL
 Today I learned...
+2021.06.17
+Optionals, Functions
+Optionals : 값을 가지지 않아도 되는 형식
+Optional Binding : Optionals를 강제 언래핑하는 것
+Return Functions 
+func name(parameters) -> returnType {
+statements
+}
+
 2021.06.16
 Control Transfer Statements, Labeled Statements
 Control Transfer Statements : 제어전달문. 흐름제어구문. 조건문과 반복문에서 일반적인 코드의 흐름을 바꾸기 위해 사용
