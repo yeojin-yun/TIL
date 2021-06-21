@@ -1,5 +1,9 @@
 # TIL
 Today I learned...
+2021.06.21
+Optionals, Function
+IUO, Nil-Coalescing Operator
+
 2021.06.17
 Optionals, Functions
 Optionals : 값을 가지지 않아도 되는 형식
