@@ -4,16 +4,16 @@ Today I learned...
 
 
 2021.06.21
-Optionals, Function. 
-IUO, Nil-Coalescing Operator. 
+#Optionals, Function
+#IUO, Nil-Coalescing Operator
 
-2021.06.17. 
-Optionals, Functions. 
-Optionals : 값을 가지지 않아도 되는 형식. 
-Optional Binding : Optionals를 강제 언래핑하는 것. 
+2021.06.17
+#Optionals, Functions
+#Optionals : 값을 가지지 않아도 되는 형식
+Optional Binding : Optionals를 강제 언래핑하는 것
 Return Functions   
-func name(parameters) -> returnType {. 
-statements. 
+func name(parameters) -> returnType {
+statements
 }. 
 
 2021.06.16
