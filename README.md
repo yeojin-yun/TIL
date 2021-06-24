@@ -1,7 +1,12 @@
 # TIL
 Today I learned...
-2021.06.23
+2021.06.24
+Autoclosure
+Tuples
+Named Tuples
 
+
+2021.06.23
 
 2021.06.21
 #Optionals, Function
