@@ -1,5 +1,12 @@
 # TIL
 Today I learned...
+2021.06.25
+Tuple
+: 이름없는 튜플. (expr1, expr2, ...)
+Named Tuple
+: 이름을 가진 튜플. 가독성이 높아짐.
+
+
 2021.06.24
 Autoclosure
 Tuples
