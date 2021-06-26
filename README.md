@@ -2,6 +2,9 @@
 Today I learned...
 2021.06.26
 String and Character
+Multiline String Literals : """사용하여  여러 줄 문자열 사용"""
+String Interpolation : 문자열의 포맷을 지정하는 것. %을 통해 포맷 지정
+String indices : 특정 문자의 인덱스만 불러들임.
 
 2021.06.25
 Tuple
