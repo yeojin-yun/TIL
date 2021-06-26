@@ -1,5 +1,8 @@
 # TIL
 Today I learned...
+2021.06.26
+String and Character
+
 2021.06.25
 Tuple
 : 이름없는 튜플. (expr1, expr2, ...)
