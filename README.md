@@ -1,5 +1,9 @@
 # TIL
 Today I learned...
+2021.06.27
+String Index
+Stiring basics
+
 2021.06.26
 String and Character
 Multiline String Literals : """사용하여  여러 줄 문자열 사용"""
