@@ -1,5 +1,12 @@
 # TIL
 Today I learned...
+2021.06.28
+String basic
+Appending Strings and Characters : ed/ing 값은 원본을 바꾸지 않음.
+Inserting Characters : contentsof
+Replacing Substrings : replaceSubrange, replacingCharacters, replacingOccurences
+Removing Substrings : remove, removeFirst, removeLast, removeSubrange, removeALL, drop
+
 2021.06.27
 String Index
 Stiring basics
