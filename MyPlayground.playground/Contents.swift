@@ -1,3 +1,22 @@
+//2021.06.29
+let stri = "Hello Swift"
+let l = stri.lowercased()
+
+var one = stri.prefix(1)
+var two = stri.prefix(2)
+var three = stri.prefix(3)
+
+one.insert("!", at: one.endIndex)
+one.insert("2", at: one.startIndex)
+
+let newStr = String(stri.prefix(1))
+let s = stri[stri.startIndex ..< stri.index(stri.startIndex, offsetBy: 2)]
+
+
+stri[stri.index(stri.startIndex, offsetBy: 2)...]
+
+
+
 //2021.06.26
 let firstName = "yun"
 let lastName = "yeojin"

@@ -1,5 +1,10 @@
 # TIL
 Today I learned...
+2021.06.29
+String searching : range(of:), common
+String Comparison : compare, prefix, suffix, hasPrefix, hasSuffix
+String Options : Case Insensitive Option, Literal, Backward
+
 2021.06.28
 String basic
 Appending Strings and Characters : ed/ing 값은 원본을 바꾸지 않음.
