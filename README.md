@@ -1,9 +1,14 @@
 # TIL
 Today I learned...
+2021.06.30
+Array : Creating Array, Adding Array, removing Array 
+Dictionary : Creating Keys and Values, Inspecting Keys and Values, Accessing Keys and Values, Adding Keys and Values, removing Keys and Values, 
+
 2021.06.29
 String searching : range(of:), common
 String Comparison : compare, prefix, suffix, hasPrefix, hasSuffix
 String Options : Case Insensitive Option, Literal, Backward
+
 
 2021.06.28
 String basic
