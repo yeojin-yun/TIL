@@ -4,6 +4,8 @@ Today I learned...
 Dictionary : Comparing , Finding
 Set : Inspecting, Testing, Adding, Removing, Comparing, Combining, 
 Iterating Collections : foreach
+Enumeration : syntax, Raw Values
+
 
 2021.06.30
 Array : Creating Array, Adding Array, removing Array 
