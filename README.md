@@ -1,5 +1,10 @@
 # TIL
 Today I learned...
+2021.07.01
+Dictionary : Comparing , Finding
+Set : Inspecting, Testing, Adding, Removing, Comparing, Combining, 
+Iterating Collections : foreach
+
 2021.06.30
 Array : Creating Array, Adding Array, removing Array 
 Dictionary : Creating Keys and Values, Inspecting Keys and Values, Accessing Keys and Values, Adding Keys and Values, removing Keys and Values, 
