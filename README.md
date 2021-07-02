@@ -1,5 +1,19 @@
 # TIL
 Today I learned...
+2021.07.02
+Structures and Classes : syntax
+struct/class Name {
+property
+method
+initializer
+subscript
+}
+Initializer : syntax
+init (parameters) {
+statements
+}
+Nested Types : syntax(String.CompareOptions)
+
 2021.07.01
 Dictionary : Comparing , Finding
 Set : Inspecting, Testing, Adding, Removing, Comparing, Combining, 
