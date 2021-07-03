@@ -4,106 +4,106 @@ Today I learned...
 
 
 
-2021.07.02
+2021.07.02  
 Structures and Classes : syntax  
 struct/class Name {  
 property  
 method  
 initializer  
 subscript  
-}
-Initializer : syntax
-init (parameters) {
-statements
-}
-Nested Types : syntax(String.CompareOptions)
+}  
+Initializer : syntax  
+init (parameters) {  
+statements  
+}  
+Nested Types : syntax(String.CompareOptions)  
 
-2021.07.01
-Dictionary : Comparing , Finding
-Set : Inspecting, Testing, Adding, Removing, Comparing, Combining, 
-Iterating Collections : foreach
-Enumeration : syntax, Raw Values
-
-
-2021.06.30
-Array : Creating Array, Adding Array, removing Array 
-Dictionary : Creating Keys and Values, Inspecting Keys and Values, Accessing Keys and Values, Adding Keys and Values, removing Keys and Values, 
-
-2021.06.29
-String searching : range(of:), common
-String Comparison : compare, prefix, suffix, hasPrefix, hasSuffix
-String Options : Case Insensitive Option, Literal, Backward
+2021.07.01  
+Dictionary : Comparing , Finding  
+Set : Inspecting, Testing, Adding, Removing, Comparing, Combining
+Iterating Collections : foreach  
+Enumeration : syntax, Raw Values  
 
 
-2021.06.28
-String basic
-Appending Strings and Characters : ed/ing 값은 원본을 바꾸지 않음.
-Inserting Characters : contentsof
-Replacing Substrings : replaceSubrange, replacingCharacters, replacingOccurences
-Removing Substrings : remove, removeFirst, removeLast, removeSubrange, removeALL, drop
+2021.06.30  
+Array : Creating Array, Adding Array, removing Array   
+Dictionary : Creating Keys and Values, Inspecting Keys and Values, Accessing Keys and Values, Adding Keys and Values, removing Keys and Values  
 
-2021.06.27
-String Index
-Stiring basics
-
-2021.06.26
-String and Character
-Multiline String Literals : """사용하여  여러 줄 문자열 사용"""
-String Interpolation : 문자열의 포맷을 지정하는 것. %을 통해 포맷 지정
-String indices : 특정 문자의 인덱스만 불러들임.
-
-2021.06.25
-Tuple
-: 이름없는 튜플. (expr1, expr2, ...)
-Named Tuple
-: 이름을 가진 튜플. 가독성이 높아짐.
+2021.06.29  
+String searching : range(of:), common  
+String Comparison : compare, prefix, suffix, hasPrefix, hasSuffix  
+String Options : Case Insensitive Option, Literal, Backward  
 
 
-2021.06.24
-Autoclosure
-Tuples
-Named Tuples
+2021.06.28  
+String basic  
+Appending Strings and Characters : ed/ing 값은 원본을 바꾸지 않음.  
+Inserting Characters : contentsof  
+Replacing Substrings : replaceSubrange, replacingCharacters, replacingOccurences  
+Removing Substrings : remove, removeFirst, removeLast, removeSubrange, removeALL, drop  
+
+2021.06.27  
+String Index  
+Stiring basics  
+
+2021.06.26  
+String and Character  
+Multiline String Literals : """사용하여  여러 줄 문자열 사용"""  
+String Interpolation : 문자열의 포맷을 지정하는 것. %을 통해 포맷 지정  
+String indices : 특정 문자의 인덱스만 불러들임.  
+
+2021.06.25  
+Tuple  
+: 이름없는 튜플. (expr1, expr2, ...)  
+Named Tuple  
+: 이름을 가진 튜플. 가독성이 높아짐.  
 
 
-2021.06.23
+2021.06.24  
+Autoclosure  
+Tuples  
+Named Tuples  
 
-2021.06.21
-#Optionals, Function
-#IUO, Nil-Coalescing Operator
 
-2021.06.17
-#Optionals, Functions
-#Optionals : 값을 가지지 않아도 되는 형식
-Optional Binding : Optionals를 강제 언래핑하는 것
-Return Functions   
+2021.06.23  
+
+2021.06.21  
+#Optionals, Function  
+#IUO, Nil-Coalescing Operator  
+
+2021.06.17  
+#Optionals, Functions  
+#Optionals : 값을 가지지 않아도 되는 형식  
+Optional Binding : Optionals를 강제 언래핑하는 것  
+Return Functions  
 func name(parameters) -> returnType {
-statements
-}. 
+statements  
+}  
 
-2021.06.16
-Control Transfer Statements, Labeled Statements
-Control Transfer Statements : 제어전달문. 흐름제어구문. 조건문과 반복문에서 일반적인 코드의 흐름을 바꾸기 위해 사용
-break Statement : 현재 실행 중인 문장을 중지하고 다음 문장을 실행
-Continue Statement : continue는 현재 실행중인 반복을 중지하고 다음 반복을 실행한다. 
-Labeled Statemetn
-Label: statement
-break Label
-continue Label
-Test
+2021.06.16  
+Control Transfer Statements, Labeled Statements  
+Control Transfer Statements : 제어전달문. 흐름제어구문.   조건문과 반복문에서 일반적인 코드의 흐름을 바꾸기 위해 사용  
+break Statement : 현재 실행 중인 문장을 중지하고 다음 문장을 실행  
+Continue Statement : continue는 현재 실행중인 반복을 중지하고 다음 반복을 실행한다.   
+Labeled Statemetn  
+Label: statement  
+break Label  
+continue Label  
 
-2021.06.14
-Token
--가장 작은 요소
--공백이나 구둣점으로 나눌 수 없는 요소
--예) if
 
-Expression
--값, 연산자, 함수 등이 하나 이상 모여 하나의 값으로 표현된 것. 토큰이 하나 이상 모인 것
--표현식을 평가한다(evaluate)=코드를 실행하여 값을 얻는다
+2021.06.14  
+Token  
+-가장 작은 요소  
+-공백이나 구둣점으로 나눌 수 없는 요소  
+-예) if  
 
-Statement
--하나 이상의 표현들이 모여서 특정 코드를 작성. 표현식이 하나 이상 모인 것
--예) if, switch, guard, for-in, while
+Expression  
+-값, 연산자, 함수 등이 하나 이상 모여 하나의 값으로 표현된 것. 토큰이 하나 이상 모인 것  
+-표현식을 평가한다(evaluate)=코드를 실행하여 값을 얻는다  
+
+Statement  
+-하나 이상의 표현들이 모여서 특정 코드를 작성. 표현식이 하나 이상 모인 것  
+-예) if, switch, guard, for-in, while  
 
 Compile
 -X-code에서 작업한 텍스트를 컴퓨터가 이해할 수 있도록 바꾸는 것
