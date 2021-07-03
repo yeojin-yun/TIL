@@ -1,22 +1,54 @@
 # TIL
 Today I learned...
+2021.07.03
+-Stored Property
+var name: Type = dafaultName
+let name: Type = defaultName
+lazy var name: Type = DefaultValue
+-Computed Property
+var name: Type {
+    get {
+        statements
+        return expr
+    }
+    set(name) {
+        statements
+    }
+}
+-Property Observer
+var name: Type {
+    willSet(name) {
+        statements
+    }
+    didSet(name) {
+        statements
+    }
+}
 
-
+-Type Property
+static var name: Type = DefaultValue
+static let name: Type = DefaultValue
+-self & super
+self
+self.propery
+self.method()
+self[index]
+self.init(parameters)
 
 
 2021.07.02  
-Structures and Classes : syntax  
+-Structures and Classes : syntax  
 struct/class Name {  
 property  
 method  
 initializer  
 subscript  
 }  
-Initializer : syntax  
+-Initializer : syntax  
 init (parameters) {  
 statements  
 }  
-Nested Types : syntax(String.CompareOptions)  
+-Nested Types : syntax(String.CompareOptions)  
 
 2021.07.01  
 Dictionary : Comparing , Finding  
