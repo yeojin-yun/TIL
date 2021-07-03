@@ -1,12 +1,16 @@
 # TIL
 Today I learned...
+
+
+
+
 2021.07.02
-Structures and Classes : syntax
-struct/class Name {
-property
-method
-initializer
-subscript
+Structures and Classes : syntax  
+struct/class Name {  
+property  
+method  
+initializer  
+subscript  
 }
 Initializer : syntax
 init (parameters) {
