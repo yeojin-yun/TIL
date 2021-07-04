@@ -1,5 +1,9 @@
 # TIL
 Today I learned...
+2021.07.04
+-property 복습
+
+
 2021.07.03
 -Stored Property
 var name: Type = dafaultName
