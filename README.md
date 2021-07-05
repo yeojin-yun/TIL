@@ -1,5 +1,26 @@
 # TIL
 Today I learned...
+2021.07.05
+-Instance Method : 클래스, 구조체, 열거형에서 사용
+func name(parameters) -> ReturnType {
+    Code
+}
+instance.method(parameters)
+-Type Method : 클래스, 구조체, 열거형에서 사용
+static func name(parameters) -> ReturnType {
+    statements
+}
+Type.method(parameters)
+-Subscript
+subcript(parameters) -> ReturnType {
+    get {
+        return expression
+        }
+        set {
+        statements
+        }
+}
+
 2021.07.04
 -property 복습
 
