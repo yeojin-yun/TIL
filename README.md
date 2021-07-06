@@ -1,5 +1,16 @@
 # TIL
 Today I learned...
+2021.07.06
+-Inheritance
+    class className: SuperClassName {
+    }
+-Overriding : SuperClass의 멤버가 적합하지 않다면 직접 재정의하여 구현
+-Upcasting : subclass instance를 superclass 형식으로 저장하는 것
+-Downcasting : Upcasting된 형식으로 원래 형식으로 되돌리는 것
+-Any & AnyObject : 범용자료형. 모든 형식으로 저장을 가능하게 해주는 마법 단어
+-Type Casting Pattern
+-Overloading : 하나의 형식에서 동일한 이름을 가진 다수의 멤버를 선언할 때. 파라미터 수/파라미터 자료형/Argument Label/return 형으로 식별
+
 2021.07.05
 -Instance Method : 클래스, 구조체, 열거형에서 사용
 func name(parameters) -> ReturnType {
