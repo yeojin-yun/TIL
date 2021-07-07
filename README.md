@@ -1,5 +1,18 @@
 # TIL
 Today I learned...
+2021.07.07
+-Initializer : 모든 속성은 기본값을 가지고 있어야 한다.
+    init(parameters) {
+    initialization
+    }
+-memberwise Initializer : 구조체가 자동으로 제공하는 initializer
+-Class Initializer : Designated Initializer vs convenience Initializer
+    Designated Initializer : 클래스가 가진 모든 속성 초기화
+    convenience Initializer : 필요한 것만 초기화
+-Requaired Initializer : subclass에서 SuperClass에서 initializer를 직접 구현하도록 강제하는 것
+
+
+
 2021.07.06
 -Inheritance
     class className: SuperClassName {
