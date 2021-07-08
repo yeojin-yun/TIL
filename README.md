@@ -13,6 +13,8 @@ Today I learned...
     subscript
     NestedType
     위에서 확장 가능
+-Adding properties
+-Adding Methods
 
 
 
