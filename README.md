@@ -1,5 +1,22 @@
 # TIL
 Today I learned...
+2021.07.08
+-Initializer delegation : initializer위임을 통해 에러를 줄이고, 디버깅을 편리하게
+-Failable initializer : initializer의 옵셔널 버전. 초기화에 실패해도 nil값이 리턴될 수 있도록.
+-Deinitializer : initializer 정리작업. 자동으로 제거가 되나, 부가적인 정리작업을 위해 사용
+-Extension : 형식 확장. 
+    computedProperty
+    computedTypeProperty
+    instanceMethod
+    typeMethod
+    initializer
+    subscript
+    NestedType
+    위에서 확장 가능
+
+
+
+
 2021.07.07
 -Initializer : 모든 속성은 기본값을 가지고 있어야 한다.
     init(parameters) {
