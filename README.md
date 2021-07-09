@@ -1,5 +1,16 @@
 # TIL
 Today I learned...
+2021.07.09
+-Adding Initializer
+-Adding Subscripts
+-Protocol : 형식에서 제공하는 멤버 목록. 멤버를 선언해야 함. 실제의 멤버 구현은 구조체, 클래스에서 하게 됨
+-Property Requirements
+    protocol ProtocolName {
+        var name: Tyep { get set }
+        static var name: Type { get set }
+}
+
+
 2021.07.08
 -Initializer delegation : initializer위임을 통해 에러를 줄이고, 디버깅을 편리하게
 -Failable initializer : initializer의 옵셔널 버전. 초기화에 실패해도 nil값이 리턴될 수 있도록.
