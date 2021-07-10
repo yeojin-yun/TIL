@@ -1,5 +1,14 @@
 # TIL
 Today I learned...
+2021.07.10
+-복습
+1)구조체, 클래스,
+2)property, method, intitializer
+3)inheritance
+4)extension(재복습 필요)
+-method requirements(재복습 필요)
+-initializer requirements(재복습 필요)
+
 2021.07.09
 -Adding Initializer
 -Adding Subscripts
