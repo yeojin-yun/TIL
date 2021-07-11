@@ -1,5 +1,12 @@
 # TIL
 Today I learned...
+2021.07.11
+-subscript requirements(재복습 필요)
+-Memory Basics
+-Value Type vs Reference Type
+-ARC(Automatic Reference Counting)
+-Strong Reference Cycle
+
 2021.07.10
 -복습
 1)구조체, 클래스,
