@@ -1,5 +1,10 @@
 # TIL
 Today I learned...
+2021.07.12
+-property(Stored property, Computed property, Type property, property Observer)
+-foreach, map 고차함수
+
+
 2021.07.11
 -subscript requirements(재복습 필요)
 -Memory Basics
