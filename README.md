@@ -1,16 +1,16 @@
 # TIL
-Today I learned...
+Today I learned...  
 2021.07.13  
 -Hello, iOS project  
 -Hello, Xcode12  
 -Hello, interface Builder  
 -Outlet and Action  
 -Delegate Pattern #1  
-
+----------
 2021.07.12  
 -property(Stored property, Computed property, Type property, property Observer)  
 -foreach, map 고차함수  
-
+----------
 
 2021.07.11  
 -subscript requirements(재복습 필요)  
@@ -18,7 +18,7 @@ Today I learned...
 -Value Type vs Reference Type  
 -ARC(Automatic Reference Counting)  
 -Strong Reference Cycle  
-
+----------
 2021.07.10  
 -복습  
 1)구조체, 클래스  
