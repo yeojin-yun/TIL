@@ -1,146 +1,146 @@
 # TIL
 Today I learned...
-2021.07.13
--Hello, iOS project
--Hello, Xcode12
--Hello, interface Builder
--Outlet and Action
--Delegate Pattern #1
+2021.07.13  
+-Hello, iOS project  
+-Hello, Xcode12  
+-Hello, interface Builder  
+-Outlet and Action  
+-Delegate Pattern #1  
 
-2021.07.12    
--property(Stored property, Computed property, Type property, property Observer). 
--foreach, map 고차함수. 
-
-
-2021.07.11. 
--subscript requirements(재복습 필요). 
--Memory Basics. 
--Value Type vs Reference Type. 
--ARC(Automatic Reference Counting). 
--Strong Reference Cycle. 
-
-2021.07.10. 
--복습. 
-1)구조체, 클래스,  
-2)property, method, intitializer. 
-3)inheritance. 
-4)extension(재복습 필요)
--method requirements(재복습 필요)
--initializer requirements(재복습 필요)
-
-2021.07.09
--Adding Initializer
--Adding Subscripts
--Protocol : 형식에서 제공하는 멤버 목록. 멤버를 선언해야 함. 실제의 멤버 구현은 구조체, 클래스에서 하게 됨
--Property Requirements
-    protocol ProtocolName {
-        var name: Tyep { get set }
-        static var name: Type { get set }
-}
+2021.07.12  
+-property(Stored property, Computed property, Type property, property Observer)  
+-foreach, map 고차함수  
 
 
-2021.07.08
--Initializer delegation : initializer위임을 통해 에러를 줄이고, 디버깅을 편리하게
--Failable initializer : initializer의 옵셔널 버전. 초기화에 실패해도 nil값이 리턴될 수 있도록.
--Deinitializer : initializer 정리작업. 자동으로 제거가 되나, 부가적인 정리작업을 위해 사용
--Extension : 형식 확장. 
-    computedProperty
-    computedTypeProperty
-    instanceMethod
-    typeMethod
-    initializer
-    subscript
-    NestedType
-    위에서 확장 가능
--Adding properties
--Adding Methods
+2021.07.11  
+-subscript requirements(재복습 필요)  
+-Memory Basics  
+-Value Type vs Reference Type  
+-ARC(Automatic Reference Counting)  
+-Strong Reference Cycle  
+
+2021.07.10  
+-복습  
+1)구조체, 클래스  
+2)property, method, intitializer  
+3)inheritance  
+4)extension(재복습 필요)  
+-method requirements(재복습 필요)  
+-initializer requirements(재복습 필요)  
+
+2021.07.09  
+-Adding Initializer  
+-Adding Subscripts  
+-Protocol : 형식에서 제공하는 멤버 목록. 멤버를 선언해야 함. 실제의 멤버 구현은 구조체, 클래스에서 하게 됨  
+-Property Requirements  
+    protocol ProtocolName {  
+        var name: Tyep { get set }  
+        static var name: Type { get set }  
+}  
 
 
-
-
-2021.07.07
--Initializer : 모든 속성은 기본값을 가지고 있어야 한다.
-    init(parameters) {
-    initialization
-    }
--memberwise Initializer : 구조체가 자동으로 제공하는 initializer
--Class Initializer : Designated Initializer vs convenience Initializer
-    Designated Initializer : 클래스가 가진 모든 속성 초기화
-    convenience Initializer : 필요한 것만 초기화
--Requaired Initializer : subclass에서 SuperClass에서 initializer를 직접 구현하도록 강제하는 것
+2021.07.08  
+-Initializer delegation : initializer위임을 통해 에러를 줄이고, 디버깅을 편리하게  
+-Failable initializer : initializer의 옵셔널 버전. 초기화에 실패해도 nil값이 리턴될 수 있도록  
+-Deinitializer : initializer 정리작업. 자동으로 제거가 되나, 부가적인 정리작업을 위해 사용  
+-Extension : 형식 확장  
+    computedProperty  
+    computedTypeProperty  
+    instanceMethod  
+    typeMethod  
+    initializer  
+    subscript  
+    NestedType  
+    위에서 확장 가능  
+-Adding properties  
+-Adding Methods  
 
 
 
-2021.07.06
--Inheritance
-    class className: SuperClassName {
-    }
--Overriding : SuperClass의 멤버가 적합하지 않다면 직접 재정의하여 구현
--Upcasting : subclass instance를 superclass 형식으로 저장하는 것
--Downcasting : Upcasting된 형식으로 원래 형식으로 되돌리는 것
--Any & AnyObject : 범용자료형. 모든 형식으로 저장을 가능하게 해주는 마법 단어
--Type Casting Pattern
--Overloading : 하나의 형식에서 동일한 이름을 가진 다수의 멤버를 선언할 때. 파라미터 수/파라미터 자료형/Argument Label/return 형으로 식별
 
-2021.07.05
--Instance Method : 클래스, 구조체, 열거형에서 사용
-func name(parameters) -> ReturnType {
-    Code
-}
-instance.method(parameters)
--Type Method : 클래스, 구조체, 열거형에서 사용
-static func name(parameters) -> ReturnType {
-    statements
-}
-Type.method(parameters)
--Subscript
-subcript(parameters) -> ReturnType {
-    get {
-        return expression
-        }
-        set {
-        statements
-        }
-}
-
-2021.07.04
--property 복습
+2021.07.07  
+-Initializer : 모든 속성은 기본값을 가지고 있어야 한다.  
+    init(parameters) {  
+    initialization  
+    }  
+-memberwise Initializer : 구조체가 자동으로 제공하는 initializer  
+-Class Initializer : Designated Initializer vs convenience Initializer  
+    Designated Initializer : 클래스가 가진 모든 속성 초기화  
+    convenience Initializer : 필요한 것만 초기화  
+-Requaired Initializer : subclass에서 SuperClass에서 initializer를 직접 구현하도록 강제하는 것  
 
 
-2021.07.03
--Stored Property
-var name: Type = dafaultName
-let name: Type = defaultName
-lazy var name: Type = DefaultValue
--Computed Property
-var name: Type {
-    get {
-        statements
-        return expr
-    }
-    set(name) {
-        statements
-    }
-}
--Property Observer
-var name: Type {
-    willSet(name) {
-        statements
-    }
-    didSet(name) {
-        statements
-    }
-}
 
--Type Property
-static var name: Type = DefaultValue
-static let name: Type = DefaultValue
--self & super
-self
-self.propery
-self.method()
-self[index]
-self.init(parameters)
+2021.07.06  
+-Inheritance  
+    class className: SuperClassName {  
+    }  
+-Overriding : SuperClass의 멤버가 적합하지 않다면 직접 재정의하여 구현  
+-Upcasting : subclass instance를 superclass 형식으로 저장하는 것  
+-Downcasting : Upcasting된 형식으로 원래 형식으로 되돌리는 것  
+-Any & AnyObject : 범용자료형. 모든 형식으로 저장을 가능하게 해주는 마법 단어  
+-Type Casting Pattern  
+-Overloading : 하나의 형식에서 동일한 이름을 가진 다수의 멤버를 선언할 때. 파라미터 수/파라미터 자료형/Argument Label/return 형으로 식별  
+
+2021.07.05  
+-Instance Method : 클래스, 구조체, 열거형에서 사용  
+func name(parameters) -> ReturnType {  
+    Code  
+}  
+instance.method(parameters)  
+-Type Method : 클래스, 구조체, 열거형에서 사용  
+static func name(parameters) -> ReturnType {  
+    statements  
+}  
+Type.method(parameters)  
+-Subscript  
+subcript(parameters) -> ReturnType {  
+    get {  
+        return expression  
+        }  
+        set {  
+        statements  
+        }  
+}  
+
+2021.07.04  
+-property 복습  
+
+
+2021.07.03  
+-Stored Property  
+var name: Type = dafaultName  
+let name: Type = defaultName  
+lazy var name: Type = DefaultValue  
+-Computed Property  
+var name: Type {  
+    get {  
+        statements  
+        return expr  
+    }  
+    set(name) {  
+        statements  
+    }  
+}  
+-Property Observer  
+var name: Type {  
+    willSet(name) {  
+        statements  
+    }  
+    didSet(name) {  
+        statements  
+    }  
+}  
+
+-Type Property  
+static var name: Type = DefaultValue  
+static let name: Type = DefaultValue  
+-self & super  
+self  
+self.propery  
+self.method()  
+self[index]  
+self.init(parameters)  
 
 
 2021.07.02  
