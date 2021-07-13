@@ -27,7 +27,7 @@ Today I learned...
 4)extension(재복습 필요)  
 -method requirements(재복습 필요)  
 -initializer requirements(재복습 필요)  
-
+----------
 2021.07.09  
 -Adding Initializer  
 -Adding Subscripts  
@@ -37,7 +37,7 @@ Today I learned...
         var name: Tyep { get set }  
         static var name: Type { get set }  
 }  
-
+----------
 
 2021.07.08  
 -Initializer delegation : initializer위임을 통해 에러를 줄이고, 디버깅을 편리하게  
@@ -54,10 +54,7 @@ Today I learned...
     위에서 확장 가능  
 -Adding properties  
 -Adding Methods  
-
-
-
-
+----------
 2021.07.07  
 -Initializer : 모든 속성은 기본값을 가지고 있어야 한다.  
     init(parameters) {  
@@ -68,9 +65,7 @@ Today I learned...
     Designated Initializer : 클래스가 가진 모든 속성 초기화  
     convenience Initializer : 필요한 것만 초기화  
 -Requaired Initializer : subclass에서 SuperClass에서 initializer를 직접 구현하도록 강제하는 것  
-
-
-
+----------
 2021.07.06  
 -Inheritance  
     class className: SuperClassName {  
@@ -81,7 +76,7 @@ Today I learned...
 -Any & AnyObject : 범용자료형. 모든 형식으로 저장을 가능하게 해주는 마법 단어  
 -Type Casting Pattern  
 -Overloading : 하나의 형식에서 동일한 이름을 가진 다수의 멤버를 선언할 때. 파라미터 수/파라미터 자료형/Argument Label/return 형으로 식별  
-
+----------
 2021.07.05  
 -Instance Method : 클래스, 구조체, 열거형에서 사용  
 func name(parameters) -> ReturnType {  
@@ -102,11 +97,10 @@ subcript(parameters) -> ReturnType {
         statements  
         }  
 }  
-
+----------
 2021.07.04  
 -property 복습  
-
-
+----------
 2021.07.03  
 -Stored Property  
 var name: Type = dafaultName  
@@ -131,7 +125,6 @@ var name: Type {
         statements  
     }  
 }  
-
 -Type Property  
 static var name: Type = DefaultValue  
 static let name: Type = DefaultValue  
@@ -141,8 +134,7 @@ self.propery
 self.method()  
 self[index]  
 self.init(parameters)  
-
-
+----------
 2021.07.02  
 -Structures and Classes : syntax  
 struct/class Name {  
@@ -156,60 +148,56 @@ init (parameters) {
 statements  
 }  
 -Nested Types : syntax(String.CompareOptions)  
-
+----------
 2021.07.01  
 Dictionary : Comparing , Finding  
 Set : Inspecting, Testing, Adding, Removing, Comparing, Combining
 Iterating Collections : foreach  
 Enumeration : syntax, Raw Values  
-
-
+----------
 2021.06.30  
 Array : Creating Array, Adding Array, removing Array   
 Dictionary : Creating Keys and Values, Inspecting Keys and Values, Accessing Keys and Values, Adding Keys and Values, removing Keys and Values  
-
+----------
 2021.06.29  
 String searching : range(of:), common  
 String Comparison : compare, prefix, suffix, hasPrefix, hasSuffix  
 String Options : Case Insensitive Option, Literal, Backward  
-
-
+----------
 2021.06.28  
 String basic  
 Appending Strings and Characters : ed/ing 값은 원본을 바꾸지 않음.  
 Inserting Characters : contentsof  
 Replacing Substrings : replaceSubrange, replacingCharacters, replacingOccurences  
 Removing Substrings : remove, removeFirst, removeLast, removeSubrange, removeALL, drop  
-
+----------
 2021.06.27  
 String Index  
 Stiring basics  
-
+----------
 2021.06.26  
 String and Character  
 Multiline String Literals : """사용하여  여러 줄 문자열 사용"""  
 String Interpolation : 문자열의 포맷을 지정하는 것. %을 통해 포맷 지정  
 String indices : 특정 문자의 인덱스만 불러들임.  
-
+----------
 2021.06.25  
 Tuple  
 : 이름없는 튜플. (expr1, expr2, ...)  
 Named Tuple  
 : 이름을 가진 튜플. 가독성이 높아짐.  
-
-
+----------
 2021.06.24  
 Autoclosure  
 Tuples  
 Named Tuples  
-
-
+----------
 2021.06.23  
-
+----------
 2021.06.21  
 #Optionals, Function  
 #IUO, Nil-Coalescing Operator  
-
+----------
 2021.06.17  
 #Optionals, Functions  
 #Optionals : 값을 가지지 않아도 되는 형식  
@@ -218,7 +206,7 @@ Return Functions
 func name(parameters) -> returnType {
 statements  
 }  
-
+----------
 2021.06.16  
 Control Transfer Statements, Labeled Statements  
 Control Transfer Statements : 제어전달문. 흐름제어구문.   조건문과 반복문에서 일반적인 코드의 흐름을 바꾸기 위해 사용  
@@ -228,47 +216,38 @@ Labeled Statemetn
 Label: statement  
 break Label  
 continue Label  
-
-
+----------
 2021.06.14  
-Token  
+1. Token  
 -가장 작은 요소  
--공백이나 구둣점으로 나눌 수 없는 요소  
--예) if  
-
-Expression  
--값, 연산자, 함수 등이 하나 이상 모여 하나의 값으로 표현된 것. 토큰이 하나 이상 모인 것  
+-공백이나 구둣점으로 나눌 수 없는 요소 . 예) if  
+2.Expression  
+-값, 연산자, 함수 등이 하나 이상 모여 하나의 값으로 표현된 것. 토큰이 하나 이상 모인 것 
 -표현식을 평가한다(evaluate)=코드를 실행하여 값을 얻는다  
-
-Statement  
+3. Statement  
 -하나 이상의 표현들이 모여서 특정 코드를 작성. 표현식이 하나 이상 모인 것  
 -예) if, switch, guard, for-in, while  
-
-Compile
--X-code에서 작업한 텍스트를 컴퓨터가 이해할 수 있도록 바꾸는 것
--변환에 필요한 것들은 x-code에 내장되어 있음(Compiler)
-
-Link
--컴파일한 파일을 라이브러리, 프레임워크와 연결시키는 것
--연결시키는 것들 또한 x-code에 내장되어 있음(Linker)
-
-Run
--실행해보는 것
--디버그 모드 : 파일은 커지지만, 오류를 쉽게 찾을 수 있음
--릴리즈 모드 : 파일 작업, 앱스토어 앱 올릴 때 사용.
--Runtime : 컴파일된 코드를 실행해보는 것
-
-Characters
-! : Exclamation Mark
-~ : Tilde
-[ ] : Square Bracket
-{ } : Curly Bracket / Brace
-< > : Angle Bracket
-
-First Class Citizen
-상수와 변수로 저장할 수 있다.
-parameter로 전달할 수 있다.
-함수에서 리턴할 수 있다.
+4. Compile  
+-X-code에서 작업한 텍스트를 컴퓨터가 이해할 수 있도록 바꾸는 것  
+-변환에 필요한 것들은 x-code에 내장되어 있음(Compiler)  
+5. Link  
+-컴파일한 파일을 라이브러리, 프레임워크와 연결시키는 것  
+-연결시키는 것들 또한 x-code에 내장되어 있음(Linker)  
+6. Run  
+-실행해보는 것  
+-디버그 모드 : 파일은 커지지만, 오류를 쉽게 찾을 수 있음  
+-릴리즈 모드 : 파일 작업, 앱스토어 앱 올릴 때 사용  
+-Runtime : 컴파일된 코드를 실행해보는 것  
+7. Characters  
+! : Exclamation Mark  
+~ : Tilde  
+[ ] : Square Bracket  
+{ } : Curly Bracket / Brace  
+< > : Angle Bracket  
+8. First Class Citizen  
+상수와 변수로 저장할 수 있다.  
+parameter로 전달할 수 있다.  
+함수에서 리턴할 수 있다.  
 
 2.Working with Variables
 [var]
