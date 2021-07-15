@@ -1,5 +1,11 @@
 # TIL
 Today I learned...  
+2021.07.15  
+-Button#2
+-Picker View #1, Picker View #2
+-Page Control
+-Delegate pattern #1 복습
+------------------
 2021.07.14  
 -Overview  
 -View & Windows : UIView #1 ~ #4  
