@@ -1,5 +1,8 @@
 # TIL
 Today I learned...  
+2021.07.16
+Delegate Pattern #2
+-------------
 2021.07.15  
 -Button#2
 -Picker View #1, Picker View #2
