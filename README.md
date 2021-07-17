@@ -1,5 +1,8 @@
 # TIL
 Today I learned...  
+2021.07.17  
+Slider  
+-----------
 2021.07.16
 Delegate Pattern #2
 -------------
