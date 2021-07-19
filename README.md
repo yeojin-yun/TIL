@@ -1,9 +1,16 @@
 # TIL
 Today I learned...  
+2021.07.19  
+-Switch  
+-Stepper  
+-Activity Indicator View  
+-Progress View  
+-Alert Controller #1~#3  
+--------------
 2021.07.18  
--Slider #1
--Slider #2
-
+-Slider #1  
+-Slider #2  
+-------------
 2021.07.17  
 Slider  
 -----------
