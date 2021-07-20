@@ -1,5 +1,12 @@
 # TIL
 Today I learned...  
+2021.07.20  
+-Image View  
+-Image View #Image Basics  
+-Image View #Resizable Images & vector Images  
+-Image View #Template Images  
+-Image View #Custom Drawing and Resizing  
+-------------
 2021.07.19  
 -Switch  
 -Stepper  
