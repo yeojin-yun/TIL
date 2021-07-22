@@ -1,6 +1,10 @@
 # TIL
 Today I learned...  
 2021.07.22  
+-Color #1, Color #2  
+-Label #1 ~ #2  
+-Text Field #1 ~ #3
+[단축키]  
 -Shift command L : Library 단축키  
 -command B : Build  
 -command R : Run  
