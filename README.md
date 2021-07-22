@@ -1,5 +1,29 @@
 # TIL
 Today I learned...  
+2021.07.22  
+-Shift command L : Library 단축키  
+-command B : Build  
+-command R : Run  
+-control I : 줄 맞춤?  
+-command 0 : 네비게이터 열기  
+-control + command 함수클릭 : 함수 정의(?) 보기  
+-xcode의 자동 완성 기능 : option + esc  
+-command Delete :  문장 지우기  
+-control Delete : 끊어서 지우기(대소문자 구별) 
+-option Delete : 단어 지우기  
+-command L 숫자 : line number 검색  
+-command shift O : Open Quickly  
+-command option [ : 위로 올라가기  
+-command option ] : 아래로 내려가기  
+-command 0 : 네비게이터 열고 닫기  
+-command option 0 : indicator 닫기  
+-command option W : 해당 탭 빼고 다 닫기  
+-자동정렬 : control I  
+-command , : 설정 단축키 (딜리트 라인 설정)  
+-이름 다 바꾸기 : command 클릭 rename  
+-control shift 화살표 (커서 늘리기) : 똑같은 거 추가하기  
+-command L : 주소창  
+-----------------
 2021.07.21  
 -Delegate & DataSource  
 -----------------
