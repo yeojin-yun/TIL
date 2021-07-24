@@ -1,9 +1,12 @@
 # TIL
 Today I learned...  
+2021.07.24  
+-Text View  
+---------
 2021.07.22  
 -Color #1, Color #2  
 -Label #1 ~ #2  
--Text Field #1 ~ #3
+-Text Field #1 ~ #3  
 [단축키]  
 -Shift command L : Library 단축키  
 -command B : Build  
@@ -13,7 +16,7 @@ Today I learned...
 -control + command 함수클릭 : 함수 정의(?) 보기  
 -xcode의 자동 완성 기능 : option + esc  
 -command Delete :  문장 지우기  
--control Delete : 끊어서 지우기(대소문자 구별) 
+-control Delete : 끊어서 지우기(대소문자 구별)   
 -option Delete : 단어 지우기  
 -command L 숫자 : line number 검색  
 -command shift O : Open Quickly  
@@ -52,14 +55,14 @@ Today I learned...
 2021.07.17  
 Slider  
 -----------
-2021.07.16
+2021.07.16  
 Delegate Pattern #2
 -------------
 2021.07.15  
--Button#2
--Picker View #1, Picker View #2
--Page Control
--Delegate pattern #1 복습
+-Button#2  
+-Picker View #1, Picker View #2  
+-Page Control  
+-Delegate pattern #1 복습  
 ------------------
 2021.07.14  
 -Overview  
