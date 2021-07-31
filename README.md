@@ -1,5 +1,11 @@
 # TIL
 Today I learned...  
+2021.07.31  
+-Multi Section #1  
+-Multi Section #2  
+-Seperator  
+-Table View Cell  
+--------------
 2021.07.30  
 -Table View Overview  
 -Table View Basics  
