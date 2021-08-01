@@ -1,9 +1,15 @@
 # TIL
 Today I learned...  
+-2021.08.01  
+-Standard Accessory View  
+-Custom Accessory View  
+-Self Sizing  
+-Custom Cell #1  
+-Custom Cell #2  
 2021.07.31  
 -Multi Section #1  
 -Multi Section #2  
--Seperator  
+-Separator  
 -Table View Cell  
 --------------
 2021.07.30  
