@@ -1,5 +1,7 @@
 # TIL
 Today I learned...  
+2021.08.02  
+-Customizing Section #1 ~#2  
 -2021.08.01  
 -Standard Accessory View  
 -Custom Accessory View  
