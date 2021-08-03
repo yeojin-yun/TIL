@@ -1,5 +1,9 @@
 # TIL
 Today I learned...  
+2021.08.03  
+-Managing Selection #1 ~ #2  
+-Edit Mode #1 ~ #2  
+-Row Action  
 2021.08.02  
 -Customizing Section #1 ~#2  
 -Section Index Title  
