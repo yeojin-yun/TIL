@@ -6,10 +6,12 @@ Today I learned...
 -Prefetching API  
 -Table View Controller & Static Cells  
 -Table View 강의 빠르게 돌려보기  
+-------
 2021.08.03  
 -Managing Selection #1 ~ #2  
 -Edit Mode #1 ~ #2  
 -Row Action  
+--------
 2021.08.02  
 -Customizing Section #1 ~#2  
 -Section Index Title  
