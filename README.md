@@ -1,5 +1,11 @@
 # TIL
 Today I learned...  
+2021.08.04  
+-Swipe Action  
+-Reordering Cells  
+-Prefetching API  
+-Table View Controller & Static Cells  
+-Table View 강의 빠르게 돌려보기  
 2021.08.03  
 -Managing Selection #1 ~ #2  
 -Edit Mode #1 ~ #2  
