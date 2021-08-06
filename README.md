@@ -1,13 +1,18 @@
 # TIL
 Today I learned...  
+--------
+2021.08.06  
+-Collection View Cell  
+-Supplement View  
+--------
 2021.08.05  
 -CollectionView OverView  
 -Flow Layout  
 -TableView 복습  
   (1) Table View Basics  
   (2) Multi Section  
-  (3)Seperator  
-  (4)Table View Cell  
+  (3) Seperator  
+  (4) Table View Cell  
   -----------
 2021.08.04  
 -Swipe Action  
