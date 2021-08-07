@@ -1,5 +1,8 @@
 # TIL
 Today I learned...  
+----
+2021.08.07  
+-Supplement Cell  
 --------
 2021.08.06  
 -Collection View Cell  
