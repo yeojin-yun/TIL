@@ -1,5 +1,11 @@
 # TIL
 Today I learned...  
+--------
+2021.08.08  
+-Managing the Seletion  
+-Edit Rows and Sections  
+-Reordering Items  
+-Cell Prefetching & Date Prefetching  
 ----
 2021.08.07  
 -Supplement Cell  
