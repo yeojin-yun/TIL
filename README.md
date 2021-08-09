@@ -1,11 +1,16 @@
 # TIL
 Today I learned...  
+2021.08.09  
+-ViewController Overview  
+-View Contorller Management  
+-View Controller Life Cycle  
+-Orientation and Rotation  
 --------
 2021.08.08  
 -Managing the Seletion  
 -Edit Rows and Sections  
 -Reordering Items  
--Cell Prefetching & Date Prefetching  
+-Cell Prefetching & Data Prefetching  
 ----
 2021.08.07  
 -Supplement Cell  
