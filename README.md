@@ -1,5 +1,11 @@
 # TIL
 Today I learned...  
+2021.08.10  
+-Container View Controller  
+-Navigation View Controller  
+-Navigation Item and Navigation Bar  
+-Customizing Navigation Controller  
+-------
 2021.08.09  
 -ViewController Overview  
 -View Contorller Management  
