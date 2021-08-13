@@ -1,5 +1,9 @@
 # TIL
 Today I learned...  
+2021.08.13  
+-Split View Controller  
+-Customizing Split View Controller  
+--------
 2021.08.12  
 -Customizing Tab Bar Controller  
 ----------
