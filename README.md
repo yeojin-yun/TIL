@@ -1,5 +1,8 @@
 # TIL
-Today I learned...  
+Today I learned...
+### 2022.03.03  
+- App LifeCycle  
+---  
 ### 2021.12.19  
 - git에 대한 이해  
 ---
