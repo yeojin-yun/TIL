@@ -1,5 +1,8 @@
 # TIL
 Today I learned...
+### 2022.03.04  
+- App LifeCycle 2  
+---  
 ### 2022.03.03  
 - App LifeCycle  
 ---  
