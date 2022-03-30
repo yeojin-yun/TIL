@@ -1,5 +1,32 @@
 # TIL
 Today I learned...  
+### 2022.03.30  
+#### RxSwift
+#### Observables  
+- 이벤트를 시간의 흐름에 따라 전달하는 전달자  
+- 비동기로 동작하는 일련의 항목들을 나타내는 시퀀스  
+- 세 가지의 이벤트를 방출하게 됨  
+    - `next` : 다음 데이터를 가지고 옴. 그러면 Observer가 데이터를 받음  
+    - `completed` : 시퀀스를 성공적으로 끝냄. (더 이상의 이벤트 배출X)  
+        - 옵저버블 라이프 사이클 중 가장 마지막에 전달  
+        - 오류가 발생하지 않았다면 Observable은 마지막 `onNext`를 호출한 후 이 메서드를 호출  
+    - `error` : 오류로 인한 종료. (더 이상의 이벤트 배출X)  
+        - 옵저버블 라이프 사이클 중 가장 마지막에 전달  
+        - completed와 동시에 배출될 순 없음  
+- 항목(next/completed/error)을 배출하지 않을 수도 있음  
+    - 아무 항목(=알림=이벤트)을 배출하지 않거나 completed 또는 error만 배출할 수도 있으며 next만 배출할 수도 있음  
+- Observable의 종료  
+    - Observable이 `OnCompleted`나 `OnError` 알림을 발행하면 Observable은 자원을 반환하거나 실행을 종료 시키고, 이때 옵저버는 더 이상 Observable과의 커뮤니케이션을 시도하면 안됨  
+    - Observable은 종료 전에 Observable을 구독 중인 모든 구독자에게 `OnCompleted`나 `OnError` 알림을 중 하나를 꼭 보내야 함  
+#### Observer  
+
+- Observable을 감시(subscribe)하고 있다가 Observable이 이벤트를 방출(emission)하면 전달받은 이벤트에 반응/처리  
+- 아래의 알림들을 통해 Observable과 커뮤니케이션 함  
+    - Subscribe : 옵저버가 Observable로부터 알림을 받을 준비가 되었음  
+    - Unsubscribe : 옵저버가 Observable로부터 알림을 받고 싶지 않음  
+- 옵저버가 Observable에게 Unsubsribe 알림을 보내면, Observable은 더 이상 옵저버에게 알림을 보내지 않지만, 옵저버가 Unsubscribe 알림을 보낸 후라 해도 구독 해지는 보장되지 않을 수 있음  
+- Observable이 OnError나 OnCompleted를 옵저버에게 보내면 구독은 종료. 이 경우, 옵저버는 더 이상 구독을 해지하기 위해 Observable에게 Unsubscribe 알림을 보낼 필요가 없음  
+---
 ### 2022.03.05  
 #### 데이터 저장 방법   
 ##### UserDefaults  
