@@ -1,5 +1,179 @@
 # TIL
 Today I learned...  
+### 2022.03.31
+#### Observables 생성하기
+
+- `.just()` : 하나의 요소를 방출하는 옵저버블 생성
+    - 하나의 인자만 수용 가능
+    - 전달한 인자를 그대로 방출하는 옵저버블이 생성됨
+    
+    ```swift
+    import RxSwift
+    
+    let disposeBag = DisposeBag()
+    let element = "My Dog"
+    let observable = Observable.just(element)
+    
+    let subscription = observable.subscribe(
+        onNext: { element in
+            print(element)
+        }, onCompleted: {
+            print("completed")
+        })
+    
+    subscription.disposed(by: disposeBag)
+    
+    /*
+     My Dog
+     completed
+     */
+    ```
+    
+- `.of()` : 두 개 이상의 요소를 방출하는 옵저버블 생성
+    - 두 개 이상의 인자 수용 가능
+    
+    ```swift
+    import RxSwift
+    
+    let disposeBag = DisposeBag()
+    let element1 = "Pizza"
+    let element2 = "Chicken"
+    let element3 = "Wine"
+    let observable = Observable.of(element1, element2, element3)
+    
+    let subscription = observable.subscribe(
+        onNext: { element in
+            print(element)
+        }, onCompleted: {
+            print("completed")
+        })
+    
+    subscription.disposed(by: disposeBag)
+    
+    /*
+     Pizza
+     Chicken
+     Wine
+     completed
+     */
+    ```
+    
+    ```swift
+    import RxSwift
+    
+    let disposeBag = DisposeBag()
+    let element1 = "Pizza"
+    let element2 = "Chicken"
+    let element3 = "Wine"
+    
+    Observable.of(element1, element2, element3)
+        .subscribe { element in print(element) }.disposed(by: disposeBag)
+    
+    /*
+     next(Pizza)
+     next(Chicken)
+     next(Wine)
+     completed
+     */
+    ```
+    
+- `.just()`와 `.of()`는 인자를 그대로 방출하기 때문에 배열을 전달하면 배열을 방출
+- `.from()` : 배열에 저장된 요소를 순차적으로 하나씩 방출하여 옵저버블 생성
+    - 배열 또는 시퀀스를 전달받고 배열에 포함된 요소들을 하나씩 순차적으로 방출
+    
+    ```swift
+    import RxSwift
+    
+    let disposeBag = DisposeBag()
+    let food = ["Pizza", "Chicken", "Wine"]
+    
+    Observable.from(food)
+        .subscribe { element in print(element) }.disposed(by: disposeBag)
+    
+    /*
+     next(Pizza)
+     next(Chicken)
+     next(Wine)
+     completed
+     */
+    ```
+    
+
+```swift
+import RxSwift
+
+// 옵저버블 생성
+let observable = Observable.of(1, 2, 3)
+
+// 구독        
+let subscription = observable.subscribe(
+
+        // Next 이벤트 발생 시
+        onNext: { element in
+        print(element)
+        // Completed 이벤트 발생 시
+    }, onCompleted: {
+        print("completed")
+    })
+
+//1, 2, 3
+//completed
+```
+
+---
+
+#### Dispose
+
+- Observer는 기본적으로 completed 또는 error 이벤트가 발생할 때까지 구독을 유지하지만, dispose 메서드를 사용하면 사용자가 이를 직접 제어할 수도 있음
+- Disposable 객체를 반환하면 구독을 취소할 수 있음
+
+```swift
+import RxSwift
+
+// 옵저버블 생성
+let observable = Observable.of(1, 2, 3)
+
+// 구독        
+let subscription = observable.subscribe(
+        onNext: { element in
+        print(element)
+    }, onCompleted: {
+        print("completed")
+    })
+
+// 구독 취소
+subscription.dispose()
+```
+
+- 그러나 개별적으로 구독을 관리하다보면 Observable의 수가 많아짐에 따라 관리가 어려워짐
+- 이에 따라 RxSwift에서는 DisposeBag을 제공
+    - 여러개의 disposable 객체를 모아(Bag) 한 꺼번에 Dispose 가능하도록 함
+    - `.disposed(by:)`
+
+```swift
+import RxSwift
+
+// 옵저버블 생성
+let observable = Observable.of(1, 2, 3)
+let disposeBag = DisposeBag()
+
+observable.subscribe(
+        onNext: { element in
+        print(element)
+    }, onCompleted: {
+        print("completed")
+    }
+).disposed(by: disposeBag) // 한 꺼번에 구독 취소
+
+/*
+1
+2
+3
+completed
+*/
+```
+
+---
 ### 2022.03.30  
 #### RxSwift
 #### Observables  
