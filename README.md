@@ -1,5 +1,36 @@
 # TIL
 Today I learned...  
+### 2022.04.01
+#### AsyncSubject
+
+- source Observable로부터 배출된 마지막 값(만) 배출하고, 소스 Observalbe의 동작이 완료된 후에야 동작
+- 소스 Observable이 아무 값도 배출하지 않으면 `AsyncSubjec` 역시 아무 값도 배출하지 않음
+- 만약 소스 Observable이 오류로 인해 종료될 경우 `AsyncSubject`는 아무 항목도 배출하지 않고 발생한 오류를 그대로 전달
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5576ab3a-7a6f-49e6-bed2-d845e39db2df/Untitled.png)
+
+#### BehaviorSubject
+
+- 옵저버가 `BehaviorSubject`를 구독하기 시작하면, 옵저버는 소스 Observable이 가장 최근에 발행한 항목(또는 아직 아무 값도 발행되지 않았다면 맨 처음 값이나 기본 값)의 발행을 시작하며 그 이후 소스Observable(들)에 의해 발행된 항목들을 계속 발행
+- 만약, 소스 Observable이 오류 때문에 종료되면 `BehaviorSubject`는 아무런 항목도 배출하지 않고 소스 Observable에서 발생한 오류를 그대로 전달
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2043aeef-1002-4b79-8104-5e1a0368f06d/Untitled.png)
+
+#### PublishSubject
+
+- `PublishSubject`는 구독 이후에 소스 Observable(들)이 배출한 항목들만 옵저버에게 배출
+- `PublishSubject`는 (이를 막지 않는 이상) 생성 시점에서 즉시 항목들을 배출하기 시작할 것이고 이런 특성 때문에 주제가 생성되는 시점과 옵저버가 이 주제를 구독하기 시작하는 그 사이에 배출되는 항목들을 잃어 버릴 수 있다는 단점이 있음
+- 만약, 소스 Observable이 오류 때문에 종료되면 `BehaviorSubject`는 아무런 항목도 배출하지 않고 소스 Observable에서 발생한 오류를 그대로 전달
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2bd088ec-3014-4665-8a68-c00bc512a61d/Untitled.png)
+
+#### ReplaySubject
+
+- `ReplaySubject`는 옵저버가 구독을 시작한 시점과 관계 없이 소스 Observable(들)이 배출한 모든 항목들을 모든 옵저버에게 배출
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/be86b8a7-501a-4c34-8a40-e048a0807c33/Untitled.png)
+
+---
 ### 2022.03.31
 #### Observables 생성하기
 
