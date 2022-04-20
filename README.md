@@ -1,5 +1,10 @@
 # TIL
 Today I learned...  
+### 2022.04.20  
+#### Realm
+- Realm DB의 의미
+- Realm Model 만들기 
+---
 ### 2022.04.01
 #### AsyncSubject
 
