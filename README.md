@@ -1,11 +1,17 @@
 # TIL
 Today I learned...  
+<<<<<<< HEAD
 
 ### 2022.04.21
 #### Realm
 - Realm Model 구성
 - Realm 객체 추가
 - Realm 업데이트 실패
+=======
+### 2022.04.20  
+#### Realm
+- Realm DB의 의미
+- Realm Model 만들기 
 ---
 ### 2022.04.01
 #### AsyncSubject
