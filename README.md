@@ -1,5 +1,10 @@
 # TIL
 Today I learned...  
+### 2022.04.22  
+### Realm  
+- Save  
+- Read  
+---
 ### 2022.04.20  
 #### Realm
 - Realm DB의 의미
