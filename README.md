@@ -1,10 +1,21 @@
 # TIL
 Today I learned...  
+<<<<<<< HEAD
 ### 2022.04.22  
 ### Realm  
 - Save  
 - Read  
 ---
+=======
+<<<<<<< HEAD
+
+### 2022.04.21
+#### Realm
+- Realm Model 구성
+- Realm 객체 추가
+- Realm 업데이트 실패
+=======
+>>>>>>> 04f3dfd081ad0b8d0555e09cc5fc10a0fbaf90f5
 ### 2022.04.20  
 #### Realm
 - Realm DB의 의미
