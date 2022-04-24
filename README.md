@@ -1,7 +1,13 @@
 # TIL
 Today I learned...  
+### 2022.04.24  
+#### Realm  
+- realm에 저장된 이미지를 read해서 피커에 표시 O  
+- picker에서 새롭게 선택된 사진을 realm에 저장 O  
+- 문제) realm에 저장된 사진을 홈탭에 표시할 때 문제 발생  
+--- 
 ### 2022.04.22  
-### Realm  
+#### Realm  
 - Save  
 - Read  
 ---
