@@ -9,13 +9,29 @@ Today I learned...
 
 - In MVVM, you abstract your code to include a **ViewModel, which is a file that holds the values to be presented in your view.**
 - The logic we write to format the value (i.e. formatting a string to be inserted into a UILabel) to be presented to the view takes place in the ViewModel.
+=======
+### 2022.04.25
+#### Realm
+- realm에 저장된 이미지가 다시 홈탭에 표시될 때 문제 해결
+- 최초 진입시에는 위에 문제가 다시 발생하는 또 다른 문제 발생
+---
+### 2022.04.24  
+#### Realm  
+- realm에 저장된 이미지를 read해서 피커에 표시 O  
+- picker에서 새롭게 선택된 사진을 realm에 저장 O  
+- 문제) realm에 저장된 사진을 홈탭에 표시할 때 문제 발생  
+--- 
+### 2022.04.22  
+#### Realm  
+- Save  
+- Read  
 ---
 ### 2022.04.21
 #### Realm
 - Realm Model 구성
 - Realm 객체 추가
 - Realm 업데이트 실패
-=======
+---
 ### 2022.04.20  
 #### Realm
 - Realm DB의 의미
