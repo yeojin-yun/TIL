@@ -1,7 +1,15 @@
 # TIL
 Today I learned...  
-<<<<<<< HEAD
+### 2022.04.27  
+#### MVVM 학습
+- Model(모델) - ViewModel(뷰모델) - View(뷰=ViewController)
+- View와 ViewModel 사이에 Binding(바인딩-연결고리)가 있습니다. ViewModel은 Model에 변화를 주고, ViewModel을 업데이트하는데 이 바인딩으로 인해 View도 업데이트됩니다. ViewModel은 View에 대해 아무것도 모르기 때문에 테스트가 쉽고 바인딩으로 인해 코드 양이 많이 줄어듭니다.
 
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f4e36b3d-bd33-4dd5-984d-ffd51c5f1741/Untitled.png)
+
+- In MVVM, you abstract your code to include a **ViewModel, which is a file that holds the values to be presented in your view.**
+- The logic we write to format the value (i.e. formatting a string to be inserted into a UILabel) to be presented to the view takes place in the ViewModel.
+---
 ### 2022.04.21
 #### Realm
 - Realm Model 구성
