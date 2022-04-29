@@ -1,5 +1,13 @@
 # TIL
 Today I learned...  
+### 2022.04.29  
+#### MVVM  
+- View : 뷰(=viewContoller)에 표시되는 부분
+- Model : logic에 관한 부분. Data
+- ViewModel : View와 Model을 연결해주는 역할. 예를들어 string을 UILabel로 바꿔줌
+
+
+---
 ### 2022.04.27  
 #### MVVM 학습
 - Model(모델) - ViewModel(뷰모델) - View(뷰=ViewController)
@@ -9,7 +17,7 @@ Today I learned...
 
 - In MVVM, you abstract your code to include a **ViewModel, which is a file that holds the values to be presented in your view.**
 - The logic we write to format the value (i.e. formatting a string to be inserted into a UILabel) to be presented to the view takes place in the ViewModel.
-=======
+---
 ### 2022.04.25
 #### Realm
 - realm에 저장된 이미지가 다시 홈탭에 표시될 때 문제 해결
