@@ -1,5 +1,10 @@
 # TIL
 Today I learned...  
+### 2022.05.01  
+#### closure
+- closure에 대한 이해
+- @escaping 키워드에 대한 이해
+---
 ### 2022.04.29  
 #### MVVM  
 - View : 뷰(=viewContoller)에 표시되는 부분
