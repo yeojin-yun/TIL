@@ -1,5 +1,10 @@
 # TIL
 Today I learned...  
+### 2022.05.03
+#### Phokit  
+- PHAsset 가져오기
+- PHAssetCollection 가져오기
+---
 ### 2022.05.01  
 #### closure
 - closure에 대한 이해
