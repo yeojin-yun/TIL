@@ -1,5 +1,10 @@
 # TIL
 Today I learned...  
+### 2022.05.05  
+#### collectionViewCell
+- isSelected시 처리 mainImageView에 나오도록
+- imageView의 ContentMode에 따라 mainImageView에 어떻게 나오나?
+---
 ### 2022.05.04
 #### PhotoKit
 - PHFetchOption
