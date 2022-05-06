@@ -1,5 +1,11 @@
 # TIL
-Today I learned...  
+
+Today I learned...
+### 2022.05.05  
+#### Realm에 있는 결과를 홈탭으로 가져오기
+- display할 때는 PHFetchResult를 이용하고, realm에 저장시에는 identifier를 이용하다보니 혼동
+- realm은 첫 진입 시 한 번만 생성된 후, 이후에는 update 작업만 이루어져야 하는데, 계속해서 렘 생성이 되어 에러 발생
+---  
 ### 2022.05.05  
 #### collectionViewCell
 - isSelected시 처리 mainImageView에 나오도록
