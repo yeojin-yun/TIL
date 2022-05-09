@@ -1,6 +1,13 @@
 # TIL
 
 Today I learned...
+### 2022.05.09
+#### UISegmentedControl
+```
+let segment = UISegmentControl(items: ["과자", "치킨", "가수"]
+segment.selectedSegmentTintColor = .white //선택된 segment 색처리
+```
+---
 ### 2022.05.05  
 #### Realm에 있는 결과를 홈탭으로 가져오기
 - display할 때는 PHFetchResult를 이용하고, realm에 저장시에는 identifier를 이용하다보니 혼동
