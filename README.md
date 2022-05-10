@@ -1,6 +1,47 @@
 # TIL
 
 Today I learned...
+### 2022.05.10  
+#### NavigationBar 스토리보드 없이 바꾸기
+```
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+      
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(windowScene: windowScene)
+        
+        let rootVC = MainViewController()
+        let navVC = UINavigationController(rootViewController: rootVC)
+        navigationBarConfiguration(navVC)
+        self.window?.rootViewController = navVC
+        window?.makeKeyAndVisible()
+    }
+    
+    private func navigationBarConfiguration(_ controller: UINavigationController) {
+        controller.navigationBar.prefersLargeTitles = true
+        controller.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        controller.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        controller.navigationBar.tintColor = .white
+        controller.navigationBar.backgroundColor = UIColor.systemBlue
+        
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.backgroundColor = UIColor.systemBlue
+            controller.navigationBar.standardAppearance = navBarAppearance
+            controller.navigationBar.scrollEdgeAppearance = navBarAppearance
+        } else {
+            controller.edgesForExtendedLayout = []
+        }
+    }
+}
+```
+---
 ### 2022.05.09
 #### UISegmentedControl
 ```
