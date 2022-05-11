@@ -1,6 +1,49 @@
 # TIL
 
 Today I learned...
+### 2022.05.11
+#### UIProgressView
+```swift
+let progressBar = UIProgressView()
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2e0ab64-b7f0-45be-82cb-65410e50d0d8/Untitled.png)
+
+- `progress` : 처음 셋팅값
+    - 0.5로 셋팅하면 중간정도까지 fill되어 있음
+
+```swift
+progressBar.progress = 0.5
+```
+
+- `backgroundColor` : progress의 배경색
+
+```swift
+progressBar.backgroundColor = MyColor.purpleColor
+```
+
+- `progressTintColor` : 채워진 progress 부분을 표시하는 색
+
+```swift
+progressBar.progressTintColor = MyColor.yelloColor
+```
+
+- `trackTintColor` : 채워지지 않은 progress 부분을 표시하는 색
+    - 해당 속성을 설정하면 `backgroundColor`보다 우선 적용됨
+
+```swift
+progressBar.trackTintColor = MyColor.greenColor
+```
+
+- `setProgress` : 현재 progress를 셋팅하는 값
+    - 0.0 ~ 1.0 사이의 값
+    - Float 타입이기 때문에 계산시에 주의할 것
+
+```swift
+let percentage = Float(secondRemaining) / 20
+progressBar.setProgress(Float(percentage), animated: true)
+```
+
 ### 2022.05.10  
 #### NavigationBar 스토리보드 없이 바꾸기
 ```
