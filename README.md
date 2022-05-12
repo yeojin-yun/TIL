@@ -1,13 +1,30 @@
 # TIL
 
 Today I learned...
+### 2022.05.12  
+- A뷰컨에서 B뷰컨으로 값을 전달할 때는 연결 시점에 전달해야 함. 예를들어 navigationViewController를 push할 때 그 값을 전달해야 함
+#### CollectionViewDataSource
+- 특정한 셀이 선택되어 있어야 할 때는 `collectionView(_:willDisplay:forItemAt:)`메서드 이용
+```swift
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let selectedIndexPath = IndexPath(item: 0, section: 0)
+        homePhotoCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .top)
+    }
+```
+- 현재 선택된 셀의 indexPath를 구할 때
+```swift
+    let indexPathTest = homePhotoCollectionView.indexPathsForSelectedItems
+    //[indexPath]타입이기 때문에 indexPath.item을 꺼내기 위해서는 서브스크립트 문법 써서 꺼내야 함
+    var itemTest = indexPathTest[0].item
+```
+
+---
 ### 2022.05.11
 #### UIProgressView
 ```swift
 let progressBar = UIProgressView()
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2e0ab64-b7f0-45be-82cb-65410e50d0d8/Untitled.png)
 
 - `progress` : 처음 셋팅값
     - 0.5로 셋팅하면 중간정도까지 fill되어 있음
