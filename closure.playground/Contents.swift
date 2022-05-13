@@ -11,6 +11,7 @@ func findMaxNumber(array:[Int], handler: @escaping ([Int])->Void) {
     print("findMaxNumber: \(findMaxFromArray)")
 }
 
+
 func doSomething() {
    //setp 1
     findMaxNumber(array: [11,52,33,34,5,65,7,8,29,10]) {(result) in
@@ -59,3 +60,13 @@ print(mc.x)
 // 결과
 // 200
 // 100
+
+
+func closureCaseFunction(a: Int, b: Int, closure: @escaping (Bool) -> ()) {
+    let c = a + b
+    closure(false)
+}
+
+closureCaseFunction(a: 3, b: 3) { test in
+    print(test)
+}

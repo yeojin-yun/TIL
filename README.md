@@ -1,5 +1,133 @@
 # TIL
-Today I learned...  
+
+Today I learned...
+### 2022.05.12  
+- A뷰컨에서 B뷰컨으로 값을 전달할 때는 연결 시점에 전달해야 함. 예를들어 navigationViewController를 push할 때 그 값을 전달해야 함
+#### CollectionViewDataSource
+- 특정한 셀이 선택되어 있어야 할 때는 `collectionView(_:willDisplay:forItemAt:)`메서드 이용
+```swift
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let selectedIndexPath = IndexPath(item: 0, section: 0)
+        homePhotoCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .top)
+    }
+```
+- 현재 선택된 셀의 indexPath를 구할 때
+```swift
+    let indexPathTest = homePhotoCollectionView.indexPathsForSelectedItems
+    //[indexPath]타입이기 때문에 indexPath.item을 꺼내기 위해서는 서브스크립트 문법 써서 꺼내야 함
+    var itemTest = indexPathTest[0].item
+```
+
+---
+### 2022.05.11
+#### UIProgressView
+```swift
+let progressBar = UIProgressView()
+```
+
+
+- `progress` : 처음 셋팅값
+    - 0.5로 셋팅하면 중간정도까지 fill되어 있음
+
+```swift
+progressBar.progress = 0.5
+```
+
+- `backgroundColor` : progress의 배경색
+
+```swift
+progressBar.backgroundColor = MyColor.purpleColor
+```
+
+- `progressTintColor` : 채워진 progress 부분을 표시하는 색
+
+```swift
+progressBar.progressTintColor = MyColor.yelloColor
+```
+
+- `trackTintColor` : 채워지지 않은 progress 부분을 표시하는 색
+    - 해당 속성을 설정하면 `backgroundColor`보다 우선 적용됨
+
+```swift
+progressBar.trackTintColor = MyColor.greenColor
+```
+
+- `setProgress` : 현재 progress를 셋팅하는 값
+    - 0.0 ~ 1.0 사이의 값
+    - Float 타입이기 때문에 계산시에 주의할 것
+
+```swift
+let percentage = Float(secondRemaining) / 20
+progressBar.setProgress(Float(percentage), animated: true)
+```
+
+### 2022.05.10  
+#### NavigationBar 스토리보드 없이 바꾸기
+```
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+      
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(windowScene: windowScene)
+        
+        let rootVC = MainViewController()
+        let navVC = UINavigationController(rootViewController: rootVC)
+        navigationBarConfiguration(navVC)
+        self.window?.rootViewController = navVC
+        window?.makeKeyAndVisible()
+    }
+    
+    private func navigationBarConfiguration(_ controller: UINavigationController) {
+        controller.navigationBar.prefersLargeTitles = true
+        controller.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        controller.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        controller.navigationBar.tintColor = .white
+        controller.navigationBar.backgroundColor = UIColor.systemBlue
+        
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.backgroundColor = UIColor.systemBlue
+            controller.navigationBar.standardAppearance = navBarAppearance
+            controller.navigationBar.scrollEdgeAppearance = navBarAppearance
+        } else {
+            controller.edgesForExtendedLayout = []
+        }
+    }
+}
+```
+---
+### 2022.05.09
+#### UISegmentedControl
+```
+let segment = UISegmentControl(items: ["과자", "치킨", "가수"]
+segment.selectedSegmentTintColor = .white //선택된 segment 색처리
+```
+---
+### 2022.05.05  
+#### Realm에 있는 결과를 홈탭으로 가져오기
+- display할 때는 PHFetchResult를 이용하고, realm에 저장시에는 identifier를 이용하다보니 혼동
+- realm은 첫 진입 시 한 번만 생성된 후, 이후에는 update 작업만 이루어져야 하는데, 계속해서 렘 생성이 되어 에러 발생
+---  
+### 2022.05.05  
+#### collectionViewCell
+- isSelected시 처리 mainImageView에 나오도록
+- imageView의 ContentMode에 따라 mainImageView에 어떻게 나오나?
+---
+### 2022.05.04
+#### PhotoKit
+- PHFetchOption
+---
+### 2022.05.03
+#### Phokit  
+- PHAsset 가져오기
+- PHAssetCollection 가져오기
+---
 ### 2022.05.01  
 #### closure
 - closure에 대한 이해
