@@ -1,6 +1,39 @@
 # TIL
 
 Today I learned...
+### 2022.05.13  
+#### UIPageControl
+- 변수 선언
+```swift
+    let pageControl = UIPageControl()
+```
+- UI잡기
+    - 이미지뷰와 사용할 거면 이미지뷰 밑에 별도로 Auto Layout 잡아야 함
+```swift
+        [pageControl].forEach {
+            view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        NSLayoutConstraint.activate([
+            pageControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            pageControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            pageControl.topAnchor.constraint(equalTo: imgView.bottomAnchor, constant: 10),
+            pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+        ])
+
+```
+- 기본 속성 설정
+```swift
+        pageControl.numberOfPages = images.count
+        pageControl.currentPage = 0
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.darkGray
+        pageControl.backgroundColor = .red
+        
+        pageControl.addTarget(self, action: #selector(pageControllerTapped(_:)), for: .valueChanged)
+```
+---
 ### 2022.05.12  
 - A뷰컨에서 B뷰컨으로 값을 전달할 때는 연결 시점에 전달해야 함. 예를들어 navigationViewController를 push할 때 그 값을 전달해야 함
 #### CollectionViewDataSource
