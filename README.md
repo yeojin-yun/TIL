@@ -1,7 +1,46 @@
 # TIL
 
 Today I learned...
-### 2022.05.15
+### 2022.05.17  
+#### UIScrolControll
+- 변수 선언
+```swift
+    let memoryScrollView = UIScrollView()
+```
+- AutoLayout 잡기
+```swift
+    view.addSubview(memoryScrollView)
+    memoryScrollView.snp.makeConstraints {
+        $0.leading.top.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+    }
+```
+- scrollerView setting
+```swift
+    final private func setScrollView() {
+        memoryScrollView.delegate = self
+        memoryScrollView.alwaysBounceVertical = false
+        memoryScrollView.showsVerticalScrollIndicator = false
+        memoryScrollView.showsHorizontalScrollIndicator = false
+        memoryScrollView.isScrollEnabled = true
+        memoryScrollView.isPagingEnabled = true
+        memoryScrollView.bounces = true
+    }
+```
+- scrollView 속 이미지 셋팅
+```swift
+    final private func setImageViewInScrollView() {
+        for index in 0..<initialGuideImage.count {
+            let imageView = UIImageView()
+            let positionX = self.view.frame.width * CGFloat(index)
+            imageView.frame = CGRect(x: positionX, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            imageView.image = initialGuideImage[index]
+            imageView.contentMode = .scaleAspectFit
+            memoryScrollView.contentSize.width = imageView.frame.width * CGFloat(index + 1)
+            memoryScrollView.addSubview(imageView)
+        }
+    }
+```
+
 ### 2022.05.13  
 #### UIPageControl
 - 변수 선언
