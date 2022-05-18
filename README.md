@@ -1,77 +1,115 @@
 # TIL
 
 Today I learned...
+### 2022.05.18
+#### UIPageControl
+- 변수 선언
+```swift
+let memoryPageControl = UIPageControl()
+```
+- AutoLayout 잡기
+    - 스크롤뷰와 함께 쓸때 그냥 스크롤뷰 위에 올리면 됨
+```swift
+memoryPageControl.snp.makeConstraints {
+    $0.centerX.equalTo(view.safeAreaLayoutGuide)
+    $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(120)
+    $0.height.equalTo(40)
+    $0.width.equalTo(view.safeAreaLayoutGuide)
+}
+```
+- 기본 설정
+```swift
+final private func memoryPageControl() {
+    memoryPageControl.numberOfPages = initialGuideImage.count
+    memoryPageControl.currentPage = 0
+    memoryPageControl.pageIndicatorTintColor = .darkGray
+    memoryPageControl.currentPageIndicatorTintColor = .lightGray
+}
+```
+- 스크롤뷰와 함께 currentPage가 반영될 수 있도록
+    - 스크롤뷰의 델리게이트 메서드에서 수행
+```swift
+extension TemporaryViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if fmod(memoryScrollView.contentOffset.x, memoryScrollView.frame.size.width) == 0 {
+            let pageNumber = Int(memoryScrollView.contentOffset.x/memoryScrollView.frame.size.width)
+            memoryPageControl.currentPage = pageNumber
+        }
+    }
+}
+```
+---
 ### 2022.05.17  
 #### UIScrolControll
 - 변수 선언
 ```swift
-    let memoryScrollView = UIScrollView()
+let memoryScrollView = UIScrollView()
 ```
 - AutoLayout 잡기
 ```swift
-    view.addSubview(memoryScrollView)
-    memoryScrollView.snp.makeConstraints {
-        $0.leading.top.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
-    }
+view.addSubview(memoryScrollView)
+memoryScrollView.snp.makeConstraints {
+    $0.leading.top.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+}
 ```
 - scrollerView setting
 ```swift
-    final private func setScrollView() {
-        memoryScrollView.delegate = self
-        memoryScrollView.alwaysBounceVertical = false
-        memoryScrollView.showsVerticalScrollIndicator = false
-        memoryScrollView.showsHorizontalScrollIndicator = false
-        memoryScrollView.isScrollEnabled = true
-        memoryScrollView.isPagingEnabled = true
-        memoryScrollView.bounces = true
-    }
+final private func setScrollView() {
+    memoryScrollView.delegate = self
+    memoryScrollView.alwaysBounceVertical = false
+    memoryScrollView.showsVerticalScrollIndicator = false
+    memoryScrollView.showsHorizontalScrollIndicator = false
+    memoryScrollView.isScrollEnabled = true
+    memoryScrollView.isPagingEnabled = true
+    memoryScrollView.bounces = true
+}
 ```
 - scrollView 속 이미지 셋팅
 ```swift
-    final private func setImageViewInScrollView() {
-        for index in 0..<initialGuideImage.count {
-            let imageView = UIImageView()
-            let positionX = self.view.frame.width * CGFloat(index)
-            imageView.frame = CGRect(x: positionX, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-            imageView.image = initialGuideImage[index]
-            imageView.contentMode = .scaleAspectFit
-            memoryScrollView.contentSize.width = imageView.frame.width * CGFloat(index + 1)
-            memoryScrollView.addSubview(imageView)
-        }
+final private func setImageViewInScrollView() {
+    for index in 0..<initialGuideImage.count {
+        let imageView = UIImageView()
+        let positionX = self.view.frame.width * CGFloat(index)
+        imageView.frame = CGRect(x: positionX, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        imageView.image = initialGuideImage[index]
+        imageView.contentMode = .scaleAspectFit
+        memoryScrollView.contentSize.width = imageView.frame.width * CGFloat(index + 1)
+        memoryScrollView.addSubview(imageView)
     }
+}
 ```
-
+---
 ### 2022.05.13  
 #### UIPageControl
 - 변수 선언
 ```swift
-    let pageControl = UIPageControl()
+let pageControl = UIPageControl()
 ```
 - UI잡기
     - 이미지뷰와 사용할 거면 이미지뷰 밑에 별도로 Auto Layout 잡아야 함
 ```swift
-        [pageControl].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
+[pageControl].forEach {
+    view.addSubview($0)
+    $0.translatesAutoresizingMaskIntoConstraints = false
+}
         
-        NSLayoutConstraint.activate([
-            pageControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            pageControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            pageControl.topAnchor.constraint(equalTo: imgView.bottomAnchor, constant: 10),
-            pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
-        ])
+NSLayoutConstraint.activate([
+    pageControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+    pageControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+    pageControl.topAnchor.constraint(equalTo: imgView.bottomAnchor, constant: 10),
+    pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+])
 
 ```
 - 기본 속성 설정
 ```swift
-        pageControl.numberOfPages = images.count
-        pageControl.currentPage = 0
-        pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.currentPageIndicatorTintColor = UIColor.darkGray
-        pageControl.backgroundColor = .red
+pageControl.numberOfPages = images.count
+pageControl.currentPage = 0
+pageControl.pageIndicatorTintColor = UIColor.lightGray
+pageControl.currentPageIndicatorTintColor = UIColor.darkGray
+pageControl.backgroundColor = .red
         
-        pageControl.addTarget(self, action: #selector(pageControllerTapped(_:)), for: .valueChanged)
+pageControl.addTarget(self, action: #selector(pageControllerTapped(_:)), for: .valueChanged)
 ```
 ---
 ### 2022.05.12  
