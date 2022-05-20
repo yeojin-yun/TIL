@@ -1,6 +1,12 @@
 # TIL
 
 Today I learned...
+### 2022.05.20  
+#### View의 Drawing Cycle
+- updateConstraint()
+- layoutSubviews()
+- draw
+---
 ### 2022.05.18
 #### UIPageControl
 - 변수 선언
