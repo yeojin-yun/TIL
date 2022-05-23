@@ -1,6 +1,39 @@
 # TIL
 
 Today I learned...
+### 2022.05.23
+#### CollectionView Size 설정 방법
+```swift
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: HomeLayout.collectionWidth, height: HomeLayout.collectionWidth)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return HomeCell.spacingWidth
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return HomeCell.spacingWidth
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+
+}
+public struct HomeLayout {
+    static let imageSpacing: CGFloat = 8
+    static let spacingBetweenCell = (HomeCell.spacingWidth * (HomeCell.cellColumns - 1))
+    static let collectionWidth = (UIScreen.main.bounds.width - (HomeLayout.imageSpacing * 2) - spacingBetweenCell) / HomeCell.cellColumns
+}
+public struct HomeCell {
+    static let spacingWidth: CGFloat = 3
+    static let cellColumns: CGFloat = 5
+    static let multiplyNumber = 0.87
+}
+```
+---
 ### 2022.05.22
 #### 한글의 자음만 따오는 String Extension  
 ```swift
