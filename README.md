@@ -1,6 +1,43 @@
 # TIL
 
 Today I learned...
+### 2022.05.24
+#### Alamofire - responseDecodable
+- import Alamofire
+```swift
+import Alamofire
+```
+- 받아올 JSON 데이터를 위한 모델 만들기
+```swift
+struct MemoryModel: Codable {
+    let order: [OrderMemory]
+}
+
+struct OrderMemory: Codable {
+    let id, year, month: Int
+    let createdAt: String
+    let photos: [String]
+}
+```
+- GET을 위한 메서드
+    - 위에서 만든 모델 형식으로 Decodable 해주면 됨
+```swift
+    // MARK: - GET (서버로부터 Memory탭의 collectionView에 표시할 것)
+    func getPhotoForMemory(completion: @escaping (DataResponse<MemoryModel, AFError>) -> Void) {
+        guard let url = URL(string: "https://26b2ca1f-03de-4980-a87f-64ffe4540a90.mock.pstmn.io/memory") else { fatalError() }
+
+        AF.request(url, method: .get).validate(statusCode: 200..<300).responseDecodable(of: MemoryModel.self) { response in
+            switch response.result {
+            case .success(let data):
+                completion(response)
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+                completion(response)
+            }
+        }
+    }
+```
+---
 ### 2022.05.23
 #### CollectionView Size 설정 방법
 ```swift
