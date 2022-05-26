@@ -1,6 +1,44 @@
 # TIL
 
 Today I learned...
+### 2022.05.26
+#### KingFisher
+- 간단하게 Image를 받아올 때
+```swift
+memoryImageView.kf.setImage(with: stringUrl)
+```
+- 캐시가 없으면 이미지를 다운받고 있으면 캐시이미지 이용
+```swift
+private func cacheImage() {
+    guard let originalUrl = imageUrl else { return }
+
+    ImageCache.default.retrieveImage(forKey: originalUrl) { result in
+        switch result {
+        case .success(let value):
+            if let image = value.image {
+                self.memoryImageView.image = image
+            } else {
+                guard let safeUrl = URL(string: originalUrl) else { return }
+                let resource = ImageResource(downloadURL: safeUrl, cacheKey: originalUrl)
+            }
+        case .failure(let error):
+            print("Error retrieving Image: \(error)")
+        }
+    }
+}
+```
+- 사용 (collectionView에서)
+```swift
+// CollectionViewCell Class
+var imageUrl: String? {
+    didSet {
+        cacheImage()
+    }
+}
+// CollectionView의 cellForItemAt 델리게이트 메서드에서
+cell.imageUrl = urlArray[indexPath.section][indexPath.item]
+```
+---
 ### 2022.05.25
 #### CollectionViewCell cornerRadius
 ```swift
@@ -27,6 +65,7 @@ class ExampleCollectionViewCell: UICollectionViewCell {
     }
 }
 ```
+---
 ### 2022.05.24
 #### Alamofire - responseDecodable
 - import Alamofire
