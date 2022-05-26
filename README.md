@@ -3,6 +3,12 @@
 Today I learned...
 ### 2022.05.26
 #### KingFisher
+- SPM 이용하여 'Add Package'
+    - https://github.com/onevcat/Kingfisher
+- import KingFisher
+```swift
+import KingFisher
+```
 - 간단하게 Image를 받아올 때
 ```swift
 memoryImageView.kf.setImage(with: stringUrl)
