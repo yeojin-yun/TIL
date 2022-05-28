@@ -1,5 +1,60 @@
 # TIL
 Today I learned...
+### 2022.05.28 
+#### custom버튼과 enum 함께 활용
+```swift
+class CustomButton: UIButton {
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    init(title: String, size: CGFloat = 13, bgColor: ButtonColor, textColor: TextColor) {
+        super.init(frame: .zero)
+        //frame.size = CGSize(width: 355, height: 52)
+        setTitle(title, for: .normal)
+        titleLabel?.font = UIFont.Pretandard(type: .Regular, size: size)
+        tintColor = textColor.textColor
+        setTitleColor(textColor.textColor, for: .normal)
+        backgroundColor = bgColor.bgColor
+    }
+    enum ButtonColor {
+        case enableButton
+        case disableButton
+        case pickButton
+
+        var bgColor: UIColor {
+            switch self {
+            case .enableButton:
+                return HomeColor.enableButton
+            case .disableButton:
+                return HomeColor.disableButton
+            case .pickButton:
+                return HomeColor.homeBackGround
+            }
+        }
+    }
+    
+    enum TextColor {
+        case uploadTextInBtn
+        case pickTextInBtn
+        
+        var textColor: UIColor {
+            switch self {
+            case .uploadTextInBtn:
+                return HomeColor.uploadTextInBtn
+            case .pickTextInBtn:
+                return HomeColor.pickTextInBtn
+            }
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+```
+---
 ### 2022.05.27
 #### Hex -> UIColor
 ```swift
