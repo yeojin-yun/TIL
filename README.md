@@ -1,5 +1,24 @@
 # TIL
 Today I learned...
+### 2022.05.30. 
+#### stackView
+- stackView만 addSubview & translatesAutoresizingMaskIntoConstraints = false 해주면 됨
+- stackView의 하위요소들의 레이아웃은 오토레이아웃 잡아줄 때 설정해주면 됨
+#### UIView 위에 레이블, 버튼 올리기
+```swift
+    private lazy var passwordTextFieldView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 5
+        view.clipsToBounds = true
+        view.addSubview(passwordTextField)
+        view.addSubview(passwordInfoLabel)
+        view.addSubview(passwordSecureButton)
+        return view
+    }()
+```
+- 올리고자 하는 요소(UIView)에 addSubview를 해주면 됨
+- 그리고 레이아웃 잡을 때는 해당 UIView를 equalTo로 잡아주면 됨
+---
 ### 2022.05.28 
 #### custom버튼과 enum 함께 활용
 ```swift
