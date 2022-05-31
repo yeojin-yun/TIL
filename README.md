@@ -1,6 +1,13 @@
 # TIL
 Today I learned...
-### 2022.05.30. 
+### 2022.05.31
+#### PHAsset fetch할 때, 스크린샷 제외하기
+```swift
+let predicate = NSPredicate(format: "mediaType = %d AND isFavorite == %@ AND (creationDate > %@) AND NOT ((mediaSubtype & %d) != 0)", PHAssetMediaType.image.rawValue, NSNumber(value: true), timeLimit as NSDate, PHAssetMediaSubtype.photoScreenshot.rawValue)
+favoriteFetchOption.predicate = predicate
+```
+---
+### 2022.05.30 
 #### stackView
 - stackView만 addSubview & translatesAutoresizingMaskIntoConstraints = false 해주면 됨
 - stackView의 하위요소들의 레이아웃은 오토레이아웃 잡아줄 때 설정해주면 됨
