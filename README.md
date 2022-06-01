@@ -1,5 +1,26 @@
 # TIL
 Today I learned...
+### 2022.06.01
+#### animate
+```swift
+extension HomeViewController {
+    private func animateArrow() {
+        UIView.animate(withDuration: 5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 5, options: .curveEaseInOut) {
+            self.arrowImageView.snp.updateConstraints {
+                $0.bottom.equalTo(self.photoPickButton.snp.top).inset(15)
+            }
+            self.arrowImageView.layoutIfNeeded()
+        } completion: { _ in
+            self.arrowImageView.removeFromSuperview()
+        }
+    }
+}
+```
+- `withDuration` : 애니메이션 지속시간
+- `delay` : 애니메이션 시작 시간 (delay를 줄 것인가 말 것인가)
+- `usingSpringWithDamping` : 정지 상태가 될 때 스프링 애니메이션의 감소 비율(0.0 ~ 1.0) 진동없이 부드럽게 감속하려면 0.0에 가깝게 값 설정
+- `initialSpringVelocity` : 초기 스프링 속도. 커질수록 스프링이 띠용띠용 함
+---
 ### 2022.05.31
 #### PHAsset fetch할 때, 스크린샷 제외하기
 ```swift
