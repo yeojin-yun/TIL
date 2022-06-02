@@ -1,5 +1,25 @@
 # TIL
 Today I learned...
+### 2022.06.02
+#### TabBar에서 로그인 화면 구현
+- 탭바 컨트롤러에서 로그인이 필요할 때는, 로그인 하는 뷰컨을 present하고 dismiss하는 방식으로 접근
+- 로그인처럼 한 번만 하고 이후부터는 필요없는 작업을 스택에 쌓으면 메모리만 차지하는 현상이 발생하기 때문에 필요한 작업(=로그인)만 끝내고는 dismiss해주는 게 좋음
+```swift
+//isLoggedIn이라는 bool을 변수로 하나 설정
+//탭바에서 아래 로직 구현
+if !isLoggedIn {
+    let vc = LoginViewController()
+    vc.modalPresentationStyle = .fullScreen
+    present(vc, animated: false, completion: nil)
+}
+```
+- 실제 LoginViewController에서는 아래처럼 특정 action에서 dismiss시켜주면 됨
+```swift
+    @objc func loginButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+```
+---
 ### 2022.06.01
 #### animate
 ```swift
