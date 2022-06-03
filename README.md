@@ -1,5 +1,24 @@
 # TIL
 Today I learned...
+### 2022.06.03
+#### 
+```swift
+PHPhotoLibrary.requestAuthorization(for: .readWrite) { authorizationStatus in
+    switch authorizationStatus {
+    case .notDetermined:
+        print("notDetermined")
+    case .restricted:
+        print("restricted")
+    case .authorized:
+        print("authorized") //모든 사진에 대한 접근 권한 허용
+    case .limited:
+        print("limited") //사진 선택 -> 사진 하나도 안 고른 경우, 피커에서 취소 누른 경우
+    case .denied:
+        print("denied") //허용 안 함
+    }
+}
+```
+---
 ### 2022.06.02
 #### TabBar에서 로그인 화면 구현
 - 탭바 컨트롤러에서 로그인이 필요할 때는, 로그인 하는 뷰컨을 present하고 dismiss하는 방식으로 접근
