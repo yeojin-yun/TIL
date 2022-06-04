@@ -1,7 +1,16 @@
 # TIL
 Today I learned...
+### 2022.06.04
+#### 앱 가로모드 설정 막기
+```swift
+func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {     
+        // 세로방향 고정
+    return UIInterfaceOrientationMask.portrait
+}
+```
+---
 ### 2022.06.03
-#### 
+#### PHAsset 접근 권한 받기
 ```swift
 PHPhotoLibrary.requestAuthorization(for: .readWrite) { authorizationStatus in
     switch authorizationStatus {
