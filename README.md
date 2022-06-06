@@ -1,5 +1,40 @@
 # TIL
 Today I learned...
+### 2022.06.06
+#### Observer로 다른 뷰컨의 테이블뷰 로드하기 (모달 뷰컨 dismiss 후)
+- modal로 뜨는 뷰컨이 사라질 때, Notification 만들기
+```swift
+// DetailViewController.swift
+override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    NotificationCenter.default.post(name: NSNotification.Name("DismissDetailView"), object: nil, userInfo: nil)
+}
+```
+- 테이블뷰가 있는 뷰컨에서 Observer만들고 tableView reload
+```swift
+
+```class HomeViewController: UIViewController {
+  @IBOutlet weak var collectionview: UICollectionView!
+
+  override func viewDidLoad() {
+      super.viewDidLoad()
+
+      NotificationCenter.default.addObserver(
+          self,
+          selector: #selector(self.didDismissDetailNotification(_:)),
+          name: NSNotification.Name("DismissDetailView"),
+          object: nil
+      )
+  }
+
+  @objc func didDismissDetailNotification(_ notification: Notification) {
+      DispatchQueue.main.async {
+          self.collectionview.reloadData()
+      }
+  }
+}
+
+---
 ### 2022.06.05
 #### label을 넣은 Custom UIImageView
 ```swift
