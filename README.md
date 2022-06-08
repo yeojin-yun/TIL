@@ -1,5 +1,25 @@
 # TIL
 Today I learned...
+### 2022.06.08  
+#### addKeyFrame을 통한 애니메이션
+```swift
+UIView.animateKeyframes(withDuration: 4, delay: 0) {
+    UIView.addKeyframe(withRelativeStartTime: 0 / 4, relativeDuration: 1 / 4) {
+        // UI 변화, alpha 값 등 변화
+    }
+    UIView.addKeyframe(withRelativeStartTime: 1 / 4, relativeDuration: 1 / 4) {
+        // UI 변화, alpha 값 등 변화
+    }
+    UIView.addKeyframe(withRelativeStartTime: 2 / 4, relativeDuration: 1 / 4) {
+        // UI 변화, alpha 값 등 변화
+    }
+    UIView.addKeyframe(withRelativeStartTime: 3 / 4, relativeDuration: 1 / 4) {
+        // UI 변화, alpha 값 등 변화
+    } completion: {_ in
+        //completion 코드
+    }
+```
+---
 ### 2022.06.06
 #### Observer로 다른 뷰컨의 테이블뷰 로드하기 (모달 뷰컨 dismiss 후)
 - modal로 뜨는 뷰컨이 사라질 때, Notification 만들기
