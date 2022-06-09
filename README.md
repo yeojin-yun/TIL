@@ -1,5 +1,78 @@
 # TIL
 Today I learned...
+### 2022.06.09
+####
+#### info.plist 설정
+
+- Privacy - Photo Library Usage Description 키 항목 추가
+- 사진권한 요청 시 나타낼 메시지를 value로 설정
+
+#### 접근권한 요청
+
+```swift
+PHPhotoLibrary.requestAuthorization(for: .readWrite) { authorizationStatus in }
+```
+```swift
+PHPhotoLibrary.requestAuthorization(for: .readWrite) { authorizationStatus in
+    switch authorizationStatus {
+        case .notDetermined:
+            print("notDetermined")
+        case .restricted:
+            print("restricted")
+        case .limited:
+            print("limited")
+            //사진 선택 -> 사진 하나도 안 고른 경우, 피커에서 취소 누른 경우, 하나라도 선택한 경우
+        case .authorized:
+            print("authorized")
+             //모든 사진에 대한 접근 권한 허용
+        case .denied:
+            print("denied")
+             //허용 안 함
+        }
+    }
+}
+```
+#### `PHAuthorizationStatus`
+- **`notDetermined`** : 사용자가 앱의 라이브러리 권한을 아무것도 설정하지 않은 경우 입니다.
+- **`restricted`** : 사용자를 통해 권한을 부여 받는 것이 아니지만 라이브러리 권한에 제한이 생긴 경우 입니다. 사진을 얻어 올 수 없습니다
+- **`denied`** : 사용자가 접근을 거부한 것입니다. 사진을 얻어 올 수 없습니다 🥲
+- **`authorized`** : 사용자가 앱에게 라이브러리를 사용할 수 있도록 권한을 설정한 경우 입니다.
+- **`limited`** : (iOS 14+) 사용자가 제한된 접근 권한을 부여한 경우 입니다.
+- 원하는 곳에서 권한을 확인하여 사용하면 됨
+
+```swift
+switch PHPhotoLibrary.authorizationStatus(for: .readWrite) {
+    case .restricted:
+    case .denied:
+    case .notDetermined:
+    case .limited:
+    case .authorized:
+}
+
+//또는 특정 권한만 확인하여 사용해도 됨
+if PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized { //코드
+}
+```
+
+- 권한 요청이 비동기적으로 이루어지기 때문에 completion으로 처리하는 것도 방법
+
+```swift
+func requestPHPhotoLibraryAuthorization(completion: @escaping () -> Void) {
+    PHPhotoLibrary.requestAuthorization(for: .readWrite) { authorization in
+        switch authorization {
+        case .notDetermined:
+            print("notDetermined")
+        case .restricted:
+            print("restricted")
+        case .denied, .limited:
+            completion()
+        case .authorized:
+            completion()
+        }
+    }
+}
+```
+---
 ### 2022.06.08  
 #### addKeyFrame을 통한 애니메이션
 ```swift
