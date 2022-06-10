@@ -1,7 +1,23 @@
 # TIL
 Today I learned...
+### 2022.06.10
+#### Alamofire GET
+```swift
+    func getPhotoForMemory(completion: @escaping ([OrderMemory]) -> Void) {
+
+        let url = "\(temporaryUrl)/memory"
+        print(url)
+        AF.request(url, method: .get, encoding: URLEncoding.default, headers: header).responseDecodable(of: MemoryModel.self) { response in
+            print("😄:\(response.value)")
+
+            guard let memories = response.value else { return }
+            completion(memories.orderMemory)
+        }
+    }
+```
+---
 ### 2022.06.09
-####
+#### 사진 권한 설정
 #### info.plist 설정
 
 - Privacy - Photo Library Usage Description 키 항목 추가
