@@ -1,5 +1,21 @@
 # TIL
 Today I learned...
+### 2022.06.12
+#### scrollView
+- 스크롤뷰와 그 안에 content를 담을 뷰 2개 필요
+```swift
+    private let memoryScrollView = UIScrollView()
+    private let contentView = UIView()
+```
+- scrollView는 view에, content뷰는 scrollView에 addSubView해주기
+```swift
+[memoryScrollView, initialImageView].forEach {
+    view.addSubview(memoryScrollView)
+    memoryScrollView.addSubview(contentView)
+    $0.translatesAutoresizingMaskIntoConstraints = false
+}
+```
+---
 ### 2022.06.10
 #### Alamofire GET
 ```swift
