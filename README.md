@@ -1,5 +1,11 @@
 # TIL
 Today I learned...
+### 2022.06.13  
+#### ViewController 레이아웃 결정 순서
+1. viewWillLayoutSubviews()
+2. viewController의 컨텐트 뷰의 layoutSubviews()
+3. viewDidLayoutSubviews()
+---
 ### 2022.06.12
 #### scrollView
 - 스크롤뷰와 그 안에 content를 담을 뷰 2개 필요
