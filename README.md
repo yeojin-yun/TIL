@@ -1,5 +1,85 @@
 # TIL
 Today I learned...
+### 2022.06.15
+#### Router
+```swift
+
+import Foundation
+import Alamofire
+
+enum APIRouter {
+  case getMemory
+  case getUserSubscribe
+  case uploadPhoto(String)
+  case fetchAccessToken(String)
+
+  var baseURL: String {
+    switch self {
+    case .getMemory, .getUserSubscribe, .uploadPhoto:
+      return "http://localhost:5001"
+    case .fetchAccessToken:
+      return "http://localhost:5001"
+    }
+  }
+
+  var path: String {
+    switch self {
+    case .getMemory:
+      return "/memory"
+    case .getUserSubscribe:
+      return "/main"
+    case .uploadPhoto:
+      return "/photo"
+    case .fetchAccessToken:
+      return "/signup/social"
+    }
+  }
+
+  var method: HTTPMethod {
+    switch self {
+    case .getMemory:
+      return .get
+    case .getUserSubscribe:
+      return .get
+    case .uploadPhoto:
+      return .post
+    case .fetchAccessToken:
+      return .post
+    }
+  }
+
+  var parameters: [String: String]? {
+    switch self {
+    case .getUserSubscribe, .getMemory:
+//        return ["Authorization": KeyChain.accessToken() ?? ""]
+        return ["Authorization": "Bearer \(UserKey.bearerToken)"]
+    case .uploadPhoto(let parameter):
+      return ["orderType": parameter]
+    case .fetchAccessToken(let accessCode):
+        return ["snsId": LoginSession.shared.snsId(), "token": LoginSession.shared.accessToken() ?? "", "social": LoginSession.shared.social()]
+    }
+  }
+}
+
+// MARK: - URLRequestConvertible
+extension APIRouter: URLRequestConvertible {
+  func asURLRequest() throws -> URLRequest {
+    let url = try baseURL.asURL().appendingPathComponent(path)
+    var request = URLRequest(url: url)
+    request.method = method
+    if method == .get {
+      request = try URLEncodedFormParameterEncoder()
+        .encode(parameters, into: request)
+    } else if method == .post {
+      request = try JSONParameterEncoder().encode(parameters, into: request)
+      request.setValue("application/json", forHTTPHeaderField: "Accept")
+    }
+    return request
+  }
+}
+
+```
+---
 ### 2022.06.13  
 #### ViewController 레이아웃 결정 순서
 1. viewWillLayoutSubviews()
