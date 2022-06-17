@@ -1,5 +1,32 @@
 # TIL
 Today I learned...
+### 2022.06.17
+#### url로 이미지를 불러올 때 url에 한글이나 특정 문자 포함되어 있을 때는 어떤 처리를 해야 한다.
+- addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+```swift
+    // KingFisher 캐시없이 이미지 받아오기
+    private func kingFisherImage() {
+        let processor = DownsamplingImageProcessor(size: contentView.bounds.size)
+        guard let url = imageUrl else { return }
+        print("💩url: \(url)")
+        guard let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        print("💩urlString: \(urlString)")//문제발생
+        guard let safeURL = URL(string: urlString) else { return }
+        print("💩safeURL: \(safeURL)")
+
+        memoryImageView.kf.indicatorType = .activity
+        memoryImageView.kf.setImage(with: safeURL, options: [.processor(processor), .transition(.fade(1)),.scaleFactor(UIScreen.main.scale)]) {
+            result in
+            switch result {
+            case .failure(let error):
+                dump(error.localizedDescription)
+            case .success(let value):
+                print("success")
+            }
+        }
+    }
+```
+---
 ### 2022.06.16
 #### navigationBar setting
 ```swift
