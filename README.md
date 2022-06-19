@@ -1,5 +1,12 @@
 # TIL
 Today I learned...
+### 2022.06.18
+#### 테이블뷰 셀에 버튼을 만들었을 때
+```swift
+    var orderDetailButtonAction : (() -> ())?
+    var trackingButtonAction : (() -> ())?
+```
+---
 ### 2022.06.17
 #### url로 이미지를 불러올 때 url에 한글이나 특정 문자 포함되어 있을 때는 어떤 처리를 해야 한다.
 - addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
