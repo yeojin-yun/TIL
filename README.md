@@ -1,6 +1,19 @@
 # TIL
 Today I learned...
-### 2022.06.18
+### 2022.06.20
+#### 서버에서 받은 string 날짜를 원하는 형식으로 바꾸기
+```swift
+let dateString: String = data.createDate
+let iso8601DateFormatter = ISO8601DateFormatter()
+iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds] // option형태의 포맷
+let date = iso8601DateFormatter.date(from: dateString)
+
+let dateFormatter = DateFormatter()
+dateFormatter.dateFormat = "yyyy. MM. dd"
+self.dateLbl.text = dateFormatter.string(for: date!)
+```
+---
+### 2022.06.19
 #### 테이블뷰 셀에 버튼을 만들었을 때
 ```swift
     var orderDetailButtonAction : (() -> ())?
