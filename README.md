@@ -1,5 +1,16 @@
 # TIL
 Today I learned...
+### 2022.06.21
+#### Int를 decimal 형태로
+```swift
+let numberFormatter = NumberFormatter()
+numberFormatter.numberStyle = .decimal
+
+let price = 10005000
+let result = numberFormatter.string(from: NSNumber(value:price))!
+print(result) // "10,005,000"
+```
+---
 ### 2022.06.20
 #### 서버에서 받은 string 날짜를 원하는 형식으로 바꾸기
 ```swift
