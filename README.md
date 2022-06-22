@@ -1,5 +1,25 @@
 # TIL
 Today I learned...
+### 2022.06.22. 
+#### collectionViewCell에 버튼 동작하게 만들기 (didSelect X)
+- collectiveViewCell에 버튼 만들고 action 추가
+```swift
+let orderDetailButton = UIButton()
+self.orderDetailButton.addTarget(self, action: #selector(tapOrderDetailButton(_:)), for: .touchUpInside)
+```
+- 클로져 형식의 변수 하나 추가
+```swift
+var tapOrderDetailButtonPressed : (OrderListTableViewCell) -> Void = { (sender) in }
+```
+- collectionView Delegate에서 사용 (cellForRowAt)
+```swift
+cell.trackingButtonActionPressed = { [weak self] sender in
+    let linkUrl = NSURL(string: "https://tracker.delivery/#/kr.epost/1113903493690")
+    let safariView: SFSafariViewController = SFSafariViewController(url: linkUrl! as URL)
+    self?.present(safariView, animated: true, completion: nil)
+}
+```
+---
 ### 2022.06.21
 #### Int를 decimal 형태로
 ```swift
