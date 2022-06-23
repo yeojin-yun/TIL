@@ -1,5 +1,61 @@
 # TIL
 Today I learned...
+### 2022.06.23
+#### Alamofire responseDecodable
+- Model 만들기
+```swift
+struct UserSubscribe: Codable {
+    let keepSubscribing: Int //구독여부 1- 구독 안하는 중, 2- 구독 하는 중
+    let getGift: Bool // null - 선물하기 안 받음, true - 선물하기 받음
+    
+    enum CodingKeys: String, CodingKey {
+        case keepSubscribing = "susbcribe"
+        case getGift = "orders"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        keepSubscribing = try container.decode(Int.self, forKey: .keepSubscribing)
+        getGift = try container.decode(Bool.self, forKey: .getGift)
+    }
+}
+```
+- 통신 메서드 설정
+```swift
+    func testMemoryTap(completion: @escaping (Result<UserSubscribe, Error>) -> Void) {
+        let url = "\(temporaryUrl)/main"
+
+        AF.request(url, method: .get, encoding: URLEncoding.default, headers: header, interceptor: interceptor).responseDecodable { (response: DataResponse<UserSubscribe, AFError>) in
+            let tet = response.result
+            switch response.result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+```
+- 사용할 때
+```swift
+    func testOrderHistroyAPI() {
+        apiManager.testMemoryTap { response in
+            switch response {
+            case .success(let userSubscribe):
+                dump(userSubscribe)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+```
+- 결과
+```JSON
+▿ PhotyApp.UserSubscribe
+  - keepSubscribing: 1
+  - getGift: true
+```
+---
 ### 2022.06.22. 
 #### collectionViewCell에 버튼 동작하게 만들기 (didSelect X)
 - collectiveViewCell에 버튼 만들고 action 추가
