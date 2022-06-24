@@ -1,5 +1,34 @@
 # TIL
 Today I learned...
+### 2022.06.24
+#### webView
+- 웹뷰 속성 설정
+```swift
+var webView: WKWebView?
+```
+- Delegate 설정
+```swift
+webView?.uiDelegate = self
+webView?.navigationDelegate = self
+```
+- 레이아웃 잡기
+```swift
+guard let webView = webView else { return }
+view.addSubview(webView)
+```
+- webView 셋팅
+```swift
+    private func cookieSetting() {
+        let config = WKWebViewConfiguration()
+        let wkDataStore = WKWebsiteDataStore.nonPersistent()
+        guard let url = URL(string: url) else {return}
+        let request = URLRequest(url: url)
+        config.websiteDataStore = wkDataStore
+        webView = WKWebView(frame: .zero, configuration: config)
+        webView?.load(request)
+    }
+```
+---
 ### 2022.06.23
 #### Alamofire responseDecodable
 - Model 만들기
