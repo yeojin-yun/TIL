@@ -1,6 +1,16 @@
 # TIL
 Today I learned...
-### 2022.06.26
+### 2022.06.27
+#### push 될 때 bottom bar 사라지도록 하기
+- viewWillAppear와 viewWillDisAppear를 사용하면 viewDisAppear되면서 바로 bottom bar가 나타나기 때문에 잔상(?) 같은 느낌을 줌
+- bottom bar를 없애고 싶은 뷰컨에서 bottom bar 없앨 뷰컨으로 이어질 때 설정하면 됨.
+- bottom bar를 없애고 싶은 뷰컨에서 설정하면 앞선 뷰컨에서도 사라짐
+```swift
+let detailVC = DetailViewController()
+detailVC.hidesBottomBarWhenPushed = true
+navigationController?.pushViewController(detailVC, animated: true)
+```
+---
 ### 2022.06.24
 #### webView
 - 웹뷰 속성 설정
