@@ -1,5 +1,31 @@
 # TIL
 Today I learned...
+### 2022.07.01
+#### 스크롤뷰 팁
+- 스크롤이 필요없는 상황에서도 스크롤 있는 것처럼 만들기
+    - 레이블 하나만 있는 뷰컨에서 스크롤 있는 것처럼 만들고 싶을 때는 스크롤뷰를 뷰 사이즈보다 약간 크게 잡고, 컨텐트뷰를 스크롤뷰의 높이와 똑같이 잡으면 된다.
+```swift
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(noMemoryLabel)
+        
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(4)
+        }
+
+        contentView.snp.makeConstraints {
+            $0.edges.equalTo(scrollView.contentLayoutGuide)
+            $0.width.equalTo(scrollView.frameLayoutGuide)
+            $0.height.equalTo(scrollView)
+        }
+
+        noMemoryLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+```
+---
 ### 2022.06.27
 #### push 될 때 bottom bar 사라지도록 하기
 - viewWillAppear와 viewWillDisAppear를 사용하면 viewDisAppear되면서 바로 bottom bar가 나타나기 때문에 잔상(?) 같은 느낌을 줌
