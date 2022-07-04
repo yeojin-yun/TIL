@@ -1,5 +1,12 @@
 # TIL
 Today I learned...
+### 2022.07.04
+#### UserDefaults 쓰기
+```swift
+    UserDefaults.standard.set(true, forKey: UserKey.isUploadKey) // 값 설정
+    UserDefaults.standard.bool(forKey: UserKey.isUploadKey) // 값 읽기
+```
+---
 ### 2022.07.01
 #### 스크롤뷰 팁
 - 스크롤이 필요없는 상황에서도 스크롤 있는 것처럼 만들기
