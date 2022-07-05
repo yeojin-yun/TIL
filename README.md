@@ -1,5 +1,99 @@
 # TIL
 Today I learned...
+### 2022.07.05
+#### realm 하나의 객체에서 두개 요소 쓰기
+```swift
+import Foundation
+import RealmSwift
+
+class RealmManager {
+    let realm: Realm
+    
+    static let shared = RealmManager()
+    
+    init() {
+        do {
+            realm = try Realm()
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
+
+    func realmPrint(id: Int) {
+        print(realm.objects(Photo.self).filter("id == \(id)").first)
+    }
+
+    func isEmpty(id: Int) -> Bool {
+        return realm.objects(Photo.self).filter("id == \(id)").isEmpty
+    }
+
+    func createRealm(id: Int, with identifiers: [String]) {
+        let photoIdentifiers = Photo()
+        photoIdentifiers.id = id
+        photoIdentifiers.photoIdentifierArray = identifiers
+        photoIdentifiers.updateDate = Date()
+        do {
+            try realm.write {
+                realm.add(photoIdentifiers)
+            }
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
+    
+    func readRealm(id: Int) -> [String] {
+        guard let readIdentifiers = realm.objects(Photo.self).filter("id == \(id)").first else { fatalError("Error reading Realm") }
+        
+        let currentIdentifier = readIdentifiers.photoIdentifier
+        var temporaryArray = [String]()
+        for oneIdentifier in currentIdentifier {
+            temporaryArray.append(oneIdentifier)
+        }
+        return temporaryArray
+    }
+
+    func readRealmDate(id: Int) -> String {
+        guard let updateDate = realm.objects(Photo.self).filter("id == \(id)").first?.updateDate else { fatalError() }
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy년 MMMM d일"
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: updateDate)
+    }
+
+    func updateRealm(id: Int, with results: [String]) {
+        var resultArray: [String] = []
+        
+        if let updateRealm = realm.objects(Photo.self).filter("id == \(id)").first {
+            for result in results {
+                resultArray.append(result)
+            }
+            do {
+                try realm.write({
+                    updateRealm.photoIdentifierArray = resultArray
+                    updateRealm.updateDate = Date()
+                })
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+
+    func deleteRealm() {
+        do {
+            try realm.write {
+                realm.deleteAll()
+            }
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
+}
+
+```
+---
 ### 2022.07.04
 #### UserDefaults 쓰기
 ```swift
