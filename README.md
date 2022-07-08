@@ -1,5 +1,24 @@
 # TIL
 Today I learned...
+### 2022.07.08
+#### 삼항 연산자
+- 계산 속성(computed property)을 이용하여 서버에서 받아온 값들을 사용할 때, if문을 길게 썼었는데 삼항 연산자를 이용하여 편리
+```swift
+    var realm0NotEmpty: Bool {
+        if !realmManager.isEmpty(id: 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+````
+- 위와 아래가 완전히 동일하게 작동
+```swift
+    var realm0NotEmpty: Bool {
+        return !realmManager.isEmpty(id: 0) ? true : false
+    }
+````
+---
 ### 2022.07.05
 #### realm 하나의 객체에서 두개 요소 쓰기
 ```swift
