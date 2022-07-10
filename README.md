@@ -1,5 +1,71 @@
 # TIL
 Today I learned...
+### 2022.07.10
+#### scrollView horizontal에 여러가지 component 넣기
+```swift
+    final private func setConstraints() {
+        view.addSubview(scrollView)
+        view.addSubview(pageControl)
+        scrollView.addSubview(contentView)
+        [firstLabel, secondLabel, thirdLabel, firstImageView, secondImageView, thirdImageView].forEach {
+            contentView.addSubview($0)
+        }
+        
+        scrollView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview().inset(100)
+            make.bottom.equalToSuperview().inset(300)
+        }
+        
+        pageControl.snp.makeConstraints { make in
+            make.top.equalTo(scrollView.snp.bottom)
+            make.centerX.equalToSuperview()
+        }
+        
+        let width = UIScreen.main.bounds.width
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView.contentLayoutGuide)
+            make.height.equalTo(scrollView.frameLayoutGuide)
+            make.width.equalTo(width * 3)
+        }
+        
+        firstImageView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView)
+            make.bottom.equalTo(contentView)
+            make.height.equalTo(300)
+            make.width.equalTo(width)
+        }
+        firstLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(firstImageView)
+            make.top.equalTo(contentView).offset(50)
+        }
+        
+        secondImageView.snp.makeConstraints { make in
+            make.leading.equalTo(firstImageView.snp.trailing)
+            make.bottom.equalTo(contentView)
+            make.height.width.equalTo(firstImageView)
+        }
+        
+        secondLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(secondImageView)
+            make.top.equalTo(contentView).offset(50)
+        }
+        
+        thirdImageView.snp.makeConstraints { make in
+            make.leading.equalTo(secondImageView.snp.trailing)
+            make.bottom.equalTo(contentView)
+            make.trailing.equalTo(contentView)
+            make.height.width.equalTo(firstImageView)
+        }
+        
+        thirdLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(thirdImageView)
+            make.top.equalTo(contentView).offset(50)
+        }
+    }
+```
+---
 ### 2022.07.08
 #### 삼항 연산자
 - 계산 속성(computed property)을 이용하여 서버에서 받아온 값들을 사용할 때, if문을 길게 썼었는데 삼항 연산자를 이용하여 편리
