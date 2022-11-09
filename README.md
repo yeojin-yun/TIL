@@ -1,7 +1,7 @@
 # TIL
 Today I learned...
-### 2022.10.16
-### 2022.07.10
+### 2022.11.09
+### UIButton Configuration
 #### scrollView horizontal에 여러가지 component 넣기
 ```swift
     final private func setConstraints() {
