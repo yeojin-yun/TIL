@@ -1,5 +1,14 @@
 # TIL
 Today I learned...
+### 2023.03.06
+```swift
+let items: [Any] = ["check1", "check2", 2, 5, memoryViewModel.safeImageArray[0]]
+let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+present(ac, animated: true)
+ac.completionWithItemsHandler = { (activity, completed, items, error) in
+}
+```
+
 ### 2022.11.11
 #### 
 ### 2022.11.09
