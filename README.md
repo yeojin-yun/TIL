@@ -1,5 +1,24 @@
 # TIL
 Today I learned...
+### 2023.03.07 
+- frame 기반의 레이아웃을 잡은 경우, `UIView.animate`에서 `IflayoutNeeded`메서드가 필요 없음
+-`IfLayoutNeeded`는 autoLayout으로 잡은 경우에만 사용함
+```swift
+var tabBarFrame = self.tabBarController?.tabBar.frame ?? CGRect(x: 0, y: 0, width: self.view.frame.height, height: 70)
+var viewYPoint = self.view.frame.size.height - (tabBarFrame.size.height)
+tabBarFrame.origin.y = self.view.frame.size.height + (tabBarFrame.size.height)
+        
+UIView.animate(withDuration: 0.5) {
+    self.tabBarController?.tabBar.frame = tabBarFrame
+            
+} completion: { finished in
+            
+    UIView.animate(withDuration: 0.5) {
+        self.testView.frame = CGRect(x: tabBarFrame.origin.x, y: viewYPoint, width: tabBarFrame.width, height: tabBarFrame.height)
+    }
+}
+```
+
 ### 2023.03.06
 ```swift
 let items: [Any] = ["check1", "check2", 2, 5, memoryViewModel.safeImageArray[0]]
