@@ -1,5 +1,128 @@
 # TIL
 Today I learned...
+### 2023.03.08
+```swift
+class CircularProgressBar: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var lineWidth: CGFloat = 5
+    
+    var value: Double? {
+        didSet {
+            guard let _ = value else { return }
+            setProgress(self.bounds)
+        }
+    }
+    
+    override func draw(_ rect: CGRect) {
+        let bezierPath = UIBezierPath()
+
+        bezierPath.addArc(withCenter: CGPoint(x: rect.midX, y: rect.midY), radius: rect.midX - ((lineWidth - 1) / 2), startAngle: 0, endAngle: .pi * 2, clockwise: true)
+
+        bezierPath.lineWidth = 1
+        UIColor.systemGray4.set()
+        bezierPath.stroke()
+    }
+    
+    func setProgress(_ rect: CGRect) {
+        guard let value = self.value else {
+            return
+        }
+
+        // TableView나 CollectionView에서 재생성 될때 계속 추가되는 것을 막기 위해 제거
+        self.subviews.forEach { $0.removeFromSuperview() }
+        self.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+
+        let bezierPath = UIBezierPath()
+
+        bezierPath.addArc(withCenter: CGPoint(x: rect.midX, y: rect.midY), radius: rect.midX - ((lineWidth - 1) / 2), startAngle: -.pi / 2, endAngle: ((.pi * 2) * value) - (.pi / 2), clockwise: true)
+
+        let shapeLayer = CAShapeLayer()
+
+        shapeLayer.path = bezierPath.cgPath
+        shapeLayer.lineCap = .round    // 프로그래스 바의 끝을 둥글게 설정
+
+        let color: UIColor = .systemGray
+
+        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineWidth = lineWidth
+
+        self.layer.addSublayer(shapeLayer)
+
+        // 프로그래스바 중심에 수치 입력을 위해 UILabel 추가
+        let label = UILabel()
+        label.text = String(Int(value * 100))
+        label.textColor = .label
+        label.font = UIFont.Pretandard(type: .Regular, size: 16)
+
+        self.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    }
+}
+```
+- 사용처
+```swift
+    let circularProgress: CircularProgressBar = CircularProgressBar()
+    circularProgress.value = 0.3
+```
+
+```swift
+class CircularProgressView: UIView {
+    
+    private let shapeLayer = CAShapeLayer()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupShapeLayer()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupShapeLayer()
+    }
+    
+    private func setupShapeLayer() {
+        // Set up the shape layer properties
+        shapeLayer.lineWidth = 10
+        shapeLayer.strokeColor = UIColor.blue.cgColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineCap = .round
+        
+        // Add the shape layer to the view's layer
+        layer.addSublayer(shapeLayer)
+    }
+    
+    func setProgress(_ progress: CGFloat) {
+        // Update the shape layer's path based on the progress
+        let center = CGPoint(x: bounds.midX, y: bounds.midY)
+        let radius = min(bounds.width, bounds.height) / 2 - shapeLayer.lineWidth / 2
+        let startAngle = -CGFloat.pi / 2
+        let endAngle = startAngle + progress * 2 * CGFloat.pi
+        let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        shapeLayer.path = path.cgPath
+    }
+}
+
+```
+- 사용처
+```swift
+    let circularProgressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+    circularProgressView.center = view.center
+    view.addSubview(circularProgressView)
+    
+    circularProgressView.setProgress(0.5)
+```
 ### 2023.03.07 
 - frame 기반의 레이아웃을 잡은 경우, `UIView.animate`에서 `IflayoutNeeded`메서드가 필요 없음
 -`IfLayoutNeeded`는 autoLayout으로 잡은 경우에만 사용함
