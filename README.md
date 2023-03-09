@@ -1,5 +1,115 @@
 # TIL
 Today I learned...
+### 2023.03.09
+```swift
+extension UIImage {
+    func aspectFitImage(inRect rect: CGRect) -> UIImage? {
+        let width = self.size.width
+        let height = self.size.height
+        let aspectWidth = rect.width / width
+        let aspectHeight = rect.height / height
+        let scaleFactor = aspectWidth > aspectHeight ? rect.size.height / height : rect.size.width / width
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: width * scaleFactor, height: height * scaleFactor), false, 0.0)
+        self.draw(in: CGRect(x: 0.0, y: 0.0, width: width * scaleFactor, height: height * scaleFactor))
+
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+    
+
+//
+//    func resized(to size: CGSize) -> UIImage {
+//        let aspectRatio = self.size.width / self.size.height
+//        let targetWidth = size.width
+//        let targetHeight = targetWidth / aspectRatio
+//        let targetSize = CGSize(width: targetWidth, height: targetHeight)
+//
+//        UIGraphicsBeginImageContextWithOptions(targetSize, false, 0)
+//        self.draw(in: CGRect(origin: .zero, size: targetSize))
+//        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//
+//        return resizedImage ?? self
+//    }
+    
+    //이미지의 사이즈를 구하는 함수
+    func getImageSize() -> CGSize {
+        return CGSize(width: self.size.width, height: self.size.height)
+    }
+    
+    //UIGraphicsBeginImageContextWithOptions보다는 UIGraphicsImageRenderer을 사용할 것
+    func resized(to length: CGFloat) -> UIImage {
+        let width = self.size.width
+        let height = self.size.height
+        let resizeLength: CGFloat = length
+        print("🍯🍯🍯🍯🍯", "width: \(width), height: \(height), scale: \(scale)")
+        var scale: CGFloat
+
+        if height >= width {
+            scale = width <= resizeLength ? 1 : resizeLength / width
+        } else {
+            scale = height <= resizeLength ? 1 :resizeLength / height
+        }
+  
+        let newHeight = height * scale
+        let newWidth = width * scale
+        let size = CGSize(width: newWidth, height: newHeight)
+        print("🍯🍯🍯🍯🍯", "newSize: \(size)")
+        let render = UIGraphicsImageRenderer(size: size)
+        let renderImage = render.image { _ in
+            self.draw(in: CGRect(origin: .zero, size: size))
+        }
+        return renderImage
+    }
+    
+    // vImage를 이용해 resize하는 함수
+    // import Accelerate가 필요
+    public func resizedWithVImage(to targetSize: CGSize) -> UIImage? {
+        guard let cgImage = self.cgImage else { return self }
+        
+        var format = vImage_CGImageFormat(bitsPerComponent: UInt32(cgImage.bitsPerComponent), bitsPerPixel: UInt32(cgImage.bitsPerPixel), colorSpace: nil,
+                                          bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.first.rawValue),
+                                          version: 0, decode: nil, renderingIntent: CGColorRenderingIntent.defaultIntent)
+        var sourceBuffer = vImage_Buffer()
+        defer {
+            sourceBuffer.data.deallocate()
+        }
+        
+        var error = vImageBuffer_InitWithCGImage(&sourceBuffer, &format, nil, cgImage, numericCast(kvImageNoFlags))
+        guard error == kvImageNoError else { return self }
+        
+        // create a destination buffer
+        let destWidth = Int(targetSize.width)
+        let destHeight = Int(targetSize.height)
+        let bytesPerPixel = cgImage.bitsPerPixel / 8
+        let destBytesPerRow = destWidth * bytesPerPixel
+        let destData = UnsafeMutablePointer<UInt8>.allocate(capacity: destHeight * destBytesPerRow)
+        defer {
+            destData.deallocate()
+        }
+        
+        var destBuffer = vImage_Buffer(data: destData, height: vImagePixelCount(destHeight), width: vImagePixelCount(destWidth), rowBytes: destBytesPerRow)
+        
+        // scale the image
+        error = vImageScale_ARGB8888(&sourceBuffer, &destBuffer, nil, numericCast(kvImageHighQualityResampling))
+        guard error == kvImageNoError else { return self }
+        
+        // create a CGImage from vImage_Buffer
+        let destCGImage = vImageCreateCGImageFromBuffer(&destBuffer, &format, nil, nil, numericCast(kvImageNoFlags), &error)?.takeRetainedValue()
+        guard error == kvImageNoError else { return self }
+        
+        // create a UIImage
+        let resizedImage = destCGImage.flatMap { UIImage(cgImage: $0, scale: 0.0, orientation: self.imageOrientation) }
+        return resizedImage
+    }
+}
+
+```
+
+
 ### 2023.03.08
 ```swift
 class CircularProgressBar: UIView {
