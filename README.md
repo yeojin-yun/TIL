@@ -1,5 +1,13 @@
 # TIL
 Today I learned...
+### 2023.03.23
+- Activity Indicator를 true로 주면 버튼에 indicator가 생성됨
+```swift
+    let button = UIButton(type: .system)
+    button.configuration = .filled
+    button.configuration?.showsActivityIndicator = true
+```
+---
 ### 2023.03.21
 ## Convenience init
 - class에만 있는 생성자
