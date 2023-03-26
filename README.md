@@ -1,5 +1,10 @@
 # TIL
 Today I learned...
+### 2023.03.26
+### AnyObject
+    - class만 채택할 수 있는 프로토콜
+    - Any 타입이 모든 타입의 객체를 담을 수 있다면, AnyObject는 클래스 타입만 담을 수 있음.
+---
 ### 2023.03.23
 - Activity Indicator를 true로 주면 버튼에 indicator가 생성됨
 ```swift
@@ -9,13 +14,13 @@ Today I learned...
 ```
 ---
 ### 2023.03.21
-## Convenience init
+### Convenience init
 - class에만 있는 생성자
 - 모든 속성을 초기화 해야하는 지정 생성자와 다르게 모든 속성의 초기화가 필요없으며 초기화 과정을 보다 편리하게 해주는 생성자
 - 반드시 지정생성자를 호출해줘야 함
 - 상속 시(상속은 가능), 편의생성자는 서브클래스에서 재정의 못함
 ### 2023.03.20
-## Copy On Write
+### Copy On Write
 - 컴퓨터 프로그래밍에서 메모리 관리 기법 중 하나
 - Write가 일어났을 때 Copy를 수행함
 - **값 타입**을 복사할 경우, 매번 메모리 공간이 할당됨 → 메모리에 큰 부담
