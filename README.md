@@ -1,5 +1,11 @@
 # TIL
 Today I learned...
+### 2023.04.04
+### Delegate 패턴을 활용하는  경우를 예를 들어 설명하시오.
+- 프로토콜을 이용한 디자인 패턴 중 하나
+- 프로토콜에 요구된 사항들을 대리자(delegate)가 되어 전달하면 수신자가(receiver) 수행하게 됨
+- `UITableViewDelegate`, `UICollectionViewDelegate` 등이 빈번하게 사용하는 delegate의 사례임
+    - 특정 `ViewController`가 스스로를 위임자(delegate)로 선언 후 `UITableViewDelegate Protocol`을 채택하면, 해당 delegate에서 선언된 필수 메서드들을 구현해야 함
 ### 2023.04.03
 - 타입 자체에 속한 메서드
 - 타입 자체가 가져야 하는 공통된 기능이 있을 때 사용
