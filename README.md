@@ -1,5 +1,23 @@
 # TIL
 Today I learned...
+### 2023.04.06
+### Delegates와 Notification 방식의 차이점에 대해 설명하시오.
+- Delegate
+    - 객체 간 1:1 통신을 위해 사용됨. 객체 A가 객체 B의 Delegate로 지정되면 A는 B의 특정 이벤트나 상황에 대한 응답을 처리
+    - Delegate는 해당 프로토콜에 정의된 요구사항을 반드시 구현해야 함
+    - 두 객체는 protocol로 연결된 직접적인 결함임
+    - 해당 protocol에 구현된 내용을 보고 어떤 요구사항이
+    - 단점
+        - 메모리 누수 : Delgate 객체가 dealoc 되지 않은 경우 메모리 누수가 발생할 수 있으므로, deleagate의 객체를 weak으로 선언하는 것이 좋음
+        - 코드 유지 보수 : delegate를 구현하는 객체나 사용하는 개체가 변경되는 과
+- Notification
+    - 1:N 관계의 통신을 위해 사용
+    - 객체 A는 Notification을 post하고, 다른 객체들(B, C, D 등)이 Notification을 observe하여 받게 됨
+    - post를 하는 주체와 observe를 하는 객체들 간의 느슨한 결합 관계를 유지
+    - 단점
+        - 디버깅의 어려움 : 어떤 객체가 observe하는지 어떤 이벤트가 발생했는지 추적 어려움
+        - 오버헤드 : Notification을 지속적으로 post하고, observe하는 경우 시스템 자원 소비량이 증가
+        - 의존성 : Notification을 observe하는 객체와 post하는 객체 간의 의존성이 생기지 않도록 유의해야 함
 ### 2023.04.05
 ### Singleton 패턴을 활용하는 경우를 예를 들어 설명하시오.
 - 한 개의 클래스로 만든 객체는 단 한개여야만 한다는 규칙을 가진 디자인 패턴
