@@ -1,5 +1,11 @@
 # TIL
 Today I learned...
+### 2023.04.11
+### MVC Pattern
+- View에서 유저의 인터랙션(예를 들어 터치)이 발생 → View는 Controller에게 알림 → Controller는 이벤트(터치)를 해석하고 Model에게 data 요청 → Model은 요청받은 data를 Controller에게 응답 → Controller를 Model에게 받은 응답 데이터를 해석하여 View에 전달
+- 장점 : 간단하게 구조 파악이 가능하며 사용이 용이
+- 단점 : View와 Controller의 역할의 완전한 분리가 불가능 (controller가 view를 소유하여 UIViewController 역할을 함)
+---
 ### 2023.04.06
 ### Delegates와 Notification 방식의 차이점에 대해 설명하시오.
 - Delegate
@@ -18,6 +24,7 @@ Today I learned...
         - 디버깅의 어려움 : 어떤 객체가 observe하는지 어떤 이벤트가 발생했는지 추적 어려움
         - 오버헤드 : Notification을 지속적으로 post하고, observe하는 경우 시스템 자원 소비량이 증가
         - 의존성 : Notification을 observe하는 객체와 post하는 객체 간의 의존성이 생기지 않도록 유의해야 함
+---
 ### 2023.04.05
 ### Singleton 패턴을 활용하는 경우를 예를 들어 설명하시오.
 - 한 개의 클래스로 만든 객체는 단 한개여야만 한다는 규칙을 가진 디자인 패턴
@@ -27,12 +34,14 @@ Today I learned...
 - 단점 : 테스트가 쉽지 않고, 장점으로 인해 사용처가 많아지면 관리가 쉽지 않음
 - 예시 : `UserDefaults` , `URLSession`
 - 예를들어 network 작업에 사용되는 `URLSession`의 경우, 싱글톤으로 구현되어 있으며 별도의 객체 생성 없이도 `URLSession.shared`라는 키워드로 어디서든 접근이 가능함
+---
 ### 2023.04.04
 ### Delegate 패턴을 활용하는  경우를 예를 들어 설명하시오.
 - 프로토콜을 이용한 디자인 패턴 중 하나
 - 프로토콜에 요구된 사항들을 대리자(delegate)가 되어 전달하면 수신자가(receiver) 수행하게 됨
 - `UITableViewDelegate`, `UICollectionViewDelegate` 등이 빈번하게 사용하는 delegate의 사례임
     - 특정 `ViewController`가 스스로를 위임자(delegate)로 선언 후 `UITableViewDelegate Protocol`을 채택하면, 해당 delegate에서 선언된 필수 메서드들을 구현해야 함
+---
 ### 2023.04.03
 - 타입 자체에 속한 메서드
 - 타입 자체가 가져야 하는 공통된 기능이 있을 때 사용
@@ -52,15 +61,18 @@ Today I learned...
     ```
     
 - 예를 들어, `Int.random(in: 1...3)` 은 Int 타입 안에 구현된 타입 메서드임
+---
 ### 2023.03.29
 ### String은 왜 subscript로 접근이 안되는지 설명하시오.
 - String은 Character의 컬렉션으로 구성됨 → 각 Character는 **하나 이상**의 유니코드 스칼라 값으로 구성될 수 있음 → 각 문자가 일정한 크기를 가지지 않을 수 있기 때문에 각 문자에 인덱스를 통해 직접 접근하는 것이 불가능
 - 대신 `count`, `startIndex`, `endIndex` 등의 메서드를 통해 인덱스과 관련된 값을 얻을 수 있음
+---
 ### 2023.03.28
 ### Subscripts
 - 콜렉션, 리스트, 시퀀스 등의 집합의 특정 멤버에 간단하게 접근할 수 있게 해주는 메서드
 - 대괄호에 인덱스 값을 전달하여 멤버에 접근
 - 클래스, 구조체, 열거형 등에서도 스크립트를 정의해 사용할 수 있음
+---
 ### 2023.03.27 
 ### Optional
 - 값이 있을 수도, 없을 수도 있는 변수/상수를 나타내는 타입
@@ -69,6 +81,7 @@ Today I learned...
     - 강제 추출 : 강제로 값을 추출
     - 옵셔널 바인딩 (if let, guard let) : 값이 있다면 새로운 변수/상수에 값을 넣는다는 뜻 (값이 nil이면 if/gurd문이 실행되지 않음)
     - nil-coalescing : 옵셔널일 경우을 대비해 기본값을 설정하는 것
+---
 ### 2023.03.26
 ### AnyObject
     - class만 채택할 수 있는 프로토콜
