@@ -1,5 +1,20 @@
 # TIL
 Today I learned...
+### 2023.04.13
+### MVVM
+- Model - ViewModel - View의 구조를 갖는 디자인 패턴
+
+| View | 앱의 UI. ViewModel로 받은 데이터를 유저에게 보여주는 역할
+ViewModel에만 접근이 가능하며, 이벤트 발생 시 ViewModel에게 알림 |
+| --- | --- |
+| ViewModel | 비즈니스 로직 담당. View의 요청에 따라 로직을 실행하고, Model의 변화에 따라 View를 refresh하는 등의 역할
+Model과 View의 중재자.  |
+| Model | 데이터와 그 로직을 관리 (데이터 구조체, 네트워크 조직, JSON 파싱 코드 등) |
+- MVC에서 ViewController가 너무 커지는 문제를 ViewModel로 해결하고자 함
+- Model에서 가져온 데이터를 ViewModel에서 처리함으로써 Controller가 커지는 걸 방지 + ViewModel과 View를 데이터 바인딩을 통해 연결하여 ViewModel이 준 데이터로 View를 업데이트 함
+- Model의 데이터를 ViewModel에 전달 → ViewModel는 바인딩되어 있는 View를 업데이트
+View에 들어온 이벤트를 ViewModel에게 전달 → Model 업데이트
+---
 ### 2023.04.11
 ### MVC Pattern
 - View에서 유저의 인터랙션(예를 들어 터치)이 발생 → View는 Controller에게 알림 → Controller는 이벤트(터치)를 해석하고 Model에게 data 요청 → Model은 요청받은 data를 Controller에게 응답 → Controller를 Model에게 받은 응답 데이터를 해석하여 View에 전달
