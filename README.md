@@ -1,5 +1,12 @@
 # TIL
 Today I learned...
+### 2023.04.18
+### Protocol Oriented Programming과 Object Oriented Programming의 차이점을 설명하시오.
+- OOP(Object Oriented Programming)
+    - 사물을 객체로 형성하여 공통점을 갖는 모든 곳에서 상속받는 개체 내부의 모든 로직을 캡슐화. 의도 하지 않아도 상속했다는 이유로 모든 속성과 행위를 공유해야하며, 복잡한 상속 구조를 지닌 클래스를 상속했다면 원하는 클래스를 참조해야 할 때 다운 캐스팅을 해야 함. 또한 단 하나의 Super Class만 상속이 가능.
+- POP(Protocol Oriented Programming)
+    - 필요한 부분만 프로토콜로 분리해서 만들 수 있으며, 다중 프로토콜 구현 가능. 상속이 되지 않는 구조체의 경우에도 프로토콜을 이용해 공통 기능을 구현할 수 있음. 또한 확장을 통해 기능만 분리할 수도 있음.
+---
 ### 2023.04.14
 ### protocol
 - 특정 작업(task)이나 기능에 적합한 메서드, 속성(property), 기타 요구사항의 청사진
