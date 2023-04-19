@@ -1,5 +1,17 @@
 # TIL
 Today I learned...
+### 2023.04.19
+### Hashable이 무엇이고, Equatable을 왜 상속해야 하는지 설명하시오.
+- Hasable
+    - 정수를 해시값(어떤 데이터를 64비트 정수로 치환하여 만든 숫자)으로 생성하기 위해 해시될 수 있는 프로토콜
+    - 이 프로토콜 채택 시, 정수를 유일한 값(해시값)으로 구별할 수 있게 됨
+    - 중복을 인정하지 않는 Set과 Dictionary를 검색할 때, 이 hasable 프로토콜이 이용됨
+    - 스위프트의 기본 타입은 Int, String, Double 등의 타입에는 기본으로 구현되어 있으며, 커스텀 타입에는 직접 구현해야 함
+- Equtable
+    - 값의 비교를 가능하게 해주는 프로토콜
+    - `==` 또는 `≠`를 사용하여 값의 비교가 가능
+- 두 객체의 Hash 값이 같다고 해서 두 객체가 같은 객체라는 걸 보장해주지 않음 → Equtable 프로토콜을 구현하여 두 객체의 동일성 여부를 구별해야만 유일 무의한 해시값이 보장되기 때문에 Hashable은 Equatable 프로토콜을 채택해야만 Hashable의 의미가 성립함
+---
 ### 2023.04.18
 ### Protocol Oriented Programming과 Object Oriented Programming의 차이점을 설명하시오.
 - OOP(Object Oriented Programming)
