@@ -1,5 +1,19 @@
 # TIL
 Today I learned...
+### 2023.04.20
+### mutating 키워드에 대해 설명하시오.
+- 값 타입(구조체, 열거형)에서는 인스턴스 메서드 내에서 속성(property) 수정 불가능
+- 수정을 원한다면 인스턴스 메서드 앞에 mutating 키워드를 붙여야 함
+```swift
+struct A {
+        var name: String
+        
+        mutating func changeName(new: String) { 
+                self.name = new
+        }
+}
+```
+---
 ### 2023.04.19
 ### Hashable이 무엇이고, Equatable을 왜 상속해야 하는지 설명하시오.
 - Hasable
