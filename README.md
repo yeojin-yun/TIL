@@ -1,5 +1,39 @@
 # TIL
 Today I learned...
+### 2023.04.26
+### combine으로 URLSession
+```swift
+    func getData() -> AnyPublisher<[FollowModel], Error> {
+        let url = URL(string: "https://api.github.com/users")!
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .tryMap { data, response in
+                return data
+            }
+            .decode(type: [FollowModel].self, decoder: JSONDecoder())
+            .map({ data in
+                print(data)
+                return data
+            })
+            .eraseToAnyPublisher()
+    }
+```
+- Model
+```swift
+struct FollowModel: Codable {
+    let login: String?
+    let avatarURL: String?
+    let followersURL: String?
+    let followingURL: String?
+
+    enum CodingKeys: String, CodingKey {
+        case login
+        case avatarURL = "avatar_url"
+        case followersURL = "followers_url"
+        case followingURL = "following_url"
+    }
+}
+```
+---
 ### 2023.04.25
 ### Extension 내부에서 함수를 override할 수 있는지 설명하시오.
 - 불가능
