@@ -1,5 +1,18 @@
 # TIL
 Today I learned...
+### 2023.05.10
+### Codable
+- Encodable과 Decodable protocol에 대한 type alias
+
+```swift
+typealias Codable = Decodable & Encodable
+```
+
+- Encodable은 인코딩을 위한 프로토콜, Decodable은 디코딩을 위한 프로토콜로 두 프로토콜을 합쳐놓은 codable을 채택할 시, 인코딩과 디코팅 모두 처리 가능
+- codable을 채택한 타입은 JSON, Property List, XML 등 다양한 형식으로 인코딩과 디코딩이 가능
+- 인코딩 또는 디코딩을 위해 JSONEncoder() 또는 JSONDecoder()을 이용
+- 클래스, 구조체, 열거형에서 모두 채택 가능
+---
 ### 2023.05.09
 ### Result type
 - 함수나 메서드의 실행 결과를 성공(Success) 또는 실패(Failure) 케이스로 나타내는 열거형
