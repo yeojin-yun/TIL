@@ -1,5 +1,13 @@
 # TIL
 Today I learned...
+### 2023.05.15
+### Closure
+- 이름이 없는 익명의 함수 (이름 없이도 호출이 가능)
+- 1급 객체
+    - 클로저는 변수에 할당 할 수 있음
+    - 클로저는 파라미터로 전달할 수 있음 (인풋)
+    - 클로저는 함수의 반환형이 될 수 있음 (아웃풋)
+---
 ### 2023.05.10
 ### Codable
 - Encodable과 Decodable protocol에 대한 type alias
