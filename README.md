@@ -1,5 +1,21 @@
 # TIL
 Today I learned...
+### 2023.05.22
+### Mock Data 만들어서 사용하기
+```swift
+guard let path = Bundle.main.path(forResource: "Mock", ofType: "json") else {
+    return
+}
+guard let jsonString = try? String(contentsOfFile: path) else {
+    return
+}
+let decoder = JSONDecoder()
+let data = jsonString.data(using: .utf8)
+guard let safeData = data else { return }
+
+let result = try? decoder.decode(RoomModel.self, from: safeData)
+
+```
 ### 2023.05.18
 ### ARC (Automatic Reference Counting)
 - ARC 이전에는 MRC(Manual Reference Counting)라고 해서 메모리 관리를 수동으로 해야했기 때문에 메모리 관리가 쉽지 않았음
