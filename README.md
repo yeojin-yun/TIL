@@ -1,5 +1,40 @@
 # TIL
 Today I learned...
+### 2023.05.23
+### UICollectioinViewDiffableDataSource
+1. UICollectioView와 UICollectionViewDiffableDataSource선언
+- 제일 중요!! Section과 Category는 Hashable 해야 함!!!
+```swift
+    private var filterCollectionView: UICollectionView!
+    private var collectionViewDataSource: UICollectionViewDiffableDataSource<Section, Category>!
+```
+
+2. DiffableDataSource 셋팅
+```swift
+        collectionViewDataSource = UICollectionViewDiffableDataSource<Section, Category>(collectionView: filterCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            let cell = self.filterCollectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.identifier, for: indexPath) as! FilterCollectionViewCell
+            cell.label.text = itemIdentifier.headerTitle
+            cell.layer.borderWidth = 1
+            cell.sizeThatFits(CGSize(width: 60, height: 40))
+            return cell
+        })
+        filterCollectionView.dataSource = collectionViewDataSource
+```
+3. snapShot에 Section과 Item 더해주기
+```swift
+            var snapShot = NSDiffableDataSourceSnapshot<Section, Category>()
+        snapShot.appendSections([.main])
+        snapShot.appendItems([
+            Category(headerTitle: "방 종류", category: ["원룸", "투쓰리룸", "아파트", "오피스텔"]),
+            Category(headerTitle: "매물 종류", category: ["월세", "전세", "매매"]),
+            Category(headerTitle: "가격", category: ["오름차순", "내림차순"]),
+        ])
+        self.collectionViewDataSource.apply(snapShot)
+        
+        // Display the data in the UI.
+        filterCollectionView.reloadData()
+```
+---
 ### 2023.05.22
 ### Mock Data 만들어서 사용하기
 ```swift
