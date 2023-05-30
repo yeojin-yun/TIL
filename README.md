@@ -1,5 +1,11 @@
 # TIL
 Today I learned...
+### 2023.05.30
+### UIView 객체의 역할
+- 앱의 UI와 View의 이벤트를 처리하는 객체에 대한 배경
+- 앱은 (보통) 하나의 Window만 갖게 됨.
+- Window의 RootViewController를 관리하고, 앱의 다양한 ViewController들을 관리
+---
 ### 2023.05.25
 ### UIView 에서 Layer 객체는 무엇이고 어떤 역할을 담당하는지 설명하시오.
 - UIView에서 CALayer의 객체를 layer라고 함
