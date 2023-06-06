@@ -1,5 +1,17 @@
 # TIL
 Today I learned...
+### 2023.06.06
+### TableView를 동작 방식과 화면에 Cell을 출력하기 위해 최소한 구현해야 하는 DataSource 메서드를 설명하시오.
+1. 뷰가 로드되면 UITableView 객체가 생성됩니다.
+2. UITableViewDataSource 프로토콜을 구현한 객체가 UITableView에 데이터를 제공합니다. 이때 데이터는 섹션과 로우로 구성된 2차원 배열 형태로 제공됩니다.
+    1. ****`tableView(_:numberOfRowsInSection:)`****
+    2. ****`tableView(_:cellForRowAt:)`****
+3. UITableViewDelegate 프로토콜을 구현한 객체가 UITableView의 뷰의 모양과 동작을 결정합니다. 이때 섹션의 높이, 로우의 높이, 셀의 선택 가능 여부, 셀의 스와이프 가능 여부 등을 설정할 수 있습니다.
+4. UITableView는 UITableViewDataSource 프로토콜을 구현한 객체로부터 제공받은 데이터를 바탕으로 각각의 로우를 UITableViewCell 객체로 생성합니다.
+5. UITableViewCell 객체는 UITableView에 삽입되어 화면에 표시됩니다. 이때 UITableView는 스크롤링이 가능하도록 화면을 자르고, 스크롤링할 때마다 새로운 UITableViewCell 객체를 생성하거나 기존의 객체를 재활용하여 효율적으로 메모리를 관리합니다.
+6. 사용자가 UITableView에서 로우를 선택하면 UITableViewDelegate 프로토콜을 구현한 객체에게 선택된 로우의 정보를 전달합니다.
+7. UITableViewDelegate 프로토콜을 구현한 객체는 선택된 로우에 대한 처리를 수행합니다.
+---
 ### 2023.06.04
 ### TableView를 동작 방식과 화면에 Cell을 출력하기 위해 최소한 구현해야 하는 DataSource 메서드를 설명하시오.
 1. 뷰가 로드되면 UITableView 객체가 생성됩니다.
