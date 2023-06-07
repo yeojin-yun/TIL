@@ -1,5 +1,17 @@
 # TIL
 Today I learned...
+### 2023.06.07
+### App의 inActive 상태
+- iOS 앱은 active, inActive, Background, Suspended 등의 앱 상태를 가질 수 있음
+- 앱이 Inactive 상태가 되는 경우
+    - 앱에서 다른 앱으로 전환하는 경우
+    - 전화가 오는 경우
+    - 알림창이 떠서 사용자의 반응을 기다리는 경우
+    - 화면 회전 중인 경우
+    - 앱이 일시적으로 중단되는 경우 등
+- 앱이 실행 중이며 여전히 메모리에 로드되어 있지만, 사용자 인터랙션이나 다른 이벤트를 기다리고 있는 상태. 앱이 Inactive 상태에 진입하면 `applicationWillResignActive(:)` 메서드가 호출되며, 다시 Active 상태가 되면 `applicationWillEnterForeground(:)` 메서드가 호출됨
+- 따라서 Inactive 상태에서는 앱의 상태가 일시적으로 중단된 것으로 생각할 수 있음
+---
 ### 2023.06.06
 ### TableView를 동작 방식과 화면에 Cell을 출력하기 위해 최소한 구현해야 하는 DataSource 메서드를 설명하시오.
 1. 뷰가 로드되면 UITableView 객체가 생성됩니다.
