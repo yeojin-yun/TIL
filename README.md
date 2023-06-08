@@ -1,5 +1,18 @@
 # TIL
 Today I learned...
+### 2023.06.08
+### 다크모드 설정 방법
+- iOS13부터 다크모드가 생겨 다크모드 여부에 따라 앱을 다르게 대응할 수 있음
+1. 다크모드 설정하기 
+    1. Color Assets - Appearance - 다크모드용 Color Set을 설정하는 방법
+2. 다크 모드 제한하기
+    1. info.plist를 통해 아예 라이트 모드 only나 다크 모드 only로 설정할 수 있음
+    
+    ```sql
+    <key>UIUserInterfaceStyle</key>
+    <string>Dark</string>
+    ```
+---
 ### 2023.06.07
 ### App의 inActive 상태
 - iOS 앱은 active, inActive, Background, Suspended 등의 앱 상태를 가질 수 있음
