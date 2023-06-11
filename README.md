@@ -1,5 +1,20 @@
 # TIL
 Today I learned...
+### 2023.06.11
+### prepareForReuse
+- `UITableViewCell`과 `UICollectionViewCell`의 인스턴스 메서드
+- `UITableViewCell`과 `UICollectionViewCell`은 셀을 재사용하는데, 해당 셀이 재사용되기 전에 이 메서드가 호출됨
+- `prepareForReuse`에서는 content 관련되지 않은 것들 (예를 들어 셀의 알파값, 선택 상태 등)을 초기화 해야 함 (성능 이슈를 피하기 위해)
+- 셀을 재사용할 때, content에 대한 초기화는 `tableView(_:cellForRowAt:)`에서 해주면 됨
+- 오버라이드 해서 사용할 때는 반드시 슈퍼 클래스를 호출해야 함
+
+```swift
+override func prepareForReuse() {
+   super.prepareForReuse()
+}
+```
+- deque → prepareForReuse → return cell 순서로 불리게 됨
+---
 ### 2023.06.08
 ### 다크모드 설정 방법
 - iOS13부터 다크모드가 생겨 다크모드 여부에 따라 앱을 다르게 대응할 수 있음
