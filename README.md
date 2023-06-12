@@ -1,5 +1,14 @@
 # TIL
 Today I learned...
+### 2023.06.12
+### URLSession
+- swift에서 네트워크 데이터 전송을 위한 클래스
+- 네트워크 작업을 비동기적으로 처리하며, 백그라운드에서 데이터 다운로드, 업로드 및 전송 상태를 모니터링 할 수 있음
+- URLSession 클래스는 싱글톤으로 만들어져 있으며, custom 세션만큼 자세한 설정을 할 수는 없지만, 초기 시작으로는 적합함. shared로 접근할 수 있으면 3가지의 세션이 있음
+    1. default session
+    2. ephemeral session
+    3. background session
+---
 ### 2023.06.11
 ### prepareForReuse
 - `UITableViewCell`과 `UICollectionViewCell`의 인스턴스 메서드
