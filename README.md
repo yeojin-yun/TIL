@@ -1,5 +1,13 @@
 # TIL
 Today I learned...
+### 2023.06.14
+### components
+```swift
+var name = " Z o o e y "
+var removeName = name.components(separatedBy: " ")
+print(removeName) // ["", "Z", "o", "o", "e", "y", ""]
+```
+---
 ### 2023.06.13
 ### Closure
 - 이름이 없는 익명의 함수 (이름 없이도 호출이 가능)
