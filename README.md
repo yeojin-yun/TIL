@@ -1,5 +1,13 @@
 # TIL
 Today I learned...
+### 2023.06.25
+### split
+```swift
+var str = "Hello Swift"
+var array = str.split(separator: " ")
+print(array) // ["Hello", "Swift"]
+print(array.joined()) // HelloSwift
+```
 ### 2023.06.14
 ### components
 ```swift
