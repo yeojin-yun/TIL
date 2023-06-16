@@ -1,6 +1,16 @@
 # TIL
 Today I learned...
-### 2023.06.25
+### 2023.06.16
+### rangeOfCharacter
+```swift
+var name = "Hello+Zooey"
+
+if let range = name.rangeOfCharacter(from: .symbols) {
+    print(name[range]) // +
+}
+```
+---
+### 2023.06.15
 ### split
 ```swift
 var str = "Hello Swift"
