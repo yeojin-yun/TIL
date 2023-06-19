@@ -1,5 +1,18 @@
 # TIL
 Today I learned...
+### 2023.06.19
+### SwiftNIO
+
+- Apple이 개발한 Swift용 이벤트 기반 비동기 네트워크 애플리케이션 프레임워크
+- TCP, UDP, DNS, HTTP, WebSockets 등 다양한 네트워크 프로토콜을 지원
+- Apple Open Source 프로젝트의 일부
+- SwiftNIO 기능
+    - 이벤트 기반 비동기 네트워킹
+    - TCP, UDP, DNS, HTTP, WebSockets 등 다양한 네트워크 프로토콜 지원
+    - 고성능과 확장성
+    - Swift로 작성된 간결하고 사용하기 쉬운 API
+    - SwiftNIO는 고성능 네트워크 애플리케이션을 개발하려는 개발자에게 유용한 도구입니다.
+---
 ### 2023.06.16
 ### rangeOfCharacter
 ```swift
