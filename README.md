@@ -1,5 +1,34 @@
 # TIL
 Today I learned...
+### 2023.06.20
+### resumable protol
+1. 클라이언트는 멈췄던 다운로드를 복구하기 위해 서버로 GET 요청을 보냄
+2. 아래 내용과 함께 서버에서 응답이 옴
+    1. ETag
+    2. Accept-Ranges
+        1. resumable downloads를 지원한다는 뜻
+        2. bytes는 서버가 이 리소스의 특정 바이트에 대한 범위 요청을 지원한다는 것을 의미 (남은 바이트만큼도 보낸다는 걸 의미한다는 건가?)
+    3. Content-Length
+3. 이 다운로드 조차 방해를 받아서 끝부분을 받지 못했다면?
+4. 클라이언트는 서버에 다운로드 받지 못한 범위를 알림
+    1. 다운로드가 중도에 방해 받았네? 방해로 인해 못 받은 부분만 다운로드 받으면 됨!
+    2. 근데 나머지 데이터가 기존에 받아둔 데이터와 다르다는 보장이 없음! → 이때 ETag를 사용
+        1. If-Range가 이전 응답에 받았던 ETag를 포함한다면 서버에게 남은 데이터만 달라고 함
+    3. 만약 ETag가 같다면 서버는 206응답을 보냄
+        1. Content-Range는 이번 응답에 포함된 바이트의 범위를 나타냄
+```swift
+let downloadTask = session.downloadTask(with: request)
+downloadTask.resume()
+
+gurad let resumeData = await downloadTask.cancleByProducingResumeData() else {
+        //Download cannot be resumed
+        return 
+}
+
+let newDownloadTask = session.downloadTask(withResumeData: resumeData)
+newDownloadTask.resume()
+```
+---
 ### 2023.06.19
 ### SwiftNIO
 
