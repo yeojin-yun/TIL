@@ -1,5 +1,31 @@
 # TIL
 Today I learned...
+### 2023.06.21
+### resumable download
+```swift
+let downloadTask = session.downloadTask(with: request)
+downloadTask.resume()
+
+gurad let resumeData = await downloadTask.cancleByProducingResumeData() else {
+        //Download cannot be resumed
+        return 
+}
+
+let newDownloadTask = session.downloadTask(withResumeData: resumeData)
+newDownloadTask.resume()
+```
+
+```swift
+do {
+        let (url, response) = try await session.download(for: request)
+} catch let error as URLError {
+        gurad let resumeData = await downloadTask.cancleByProducingResumeData() else {
+        //Download cannot be resumed
+                return 
+        }
+}
+```
+---
 ### 2023.06.20
 ### resumable protol
 1. 클라이언트는 멈췄던 다운로드를 복구하기 위해 서버로 GET 요청을 보냄
