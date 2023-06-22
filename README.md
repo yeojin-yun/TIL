@@ -1,5 +1,31 @@
 # TIL
 Today I learned...
+### 2023.06.22
+### upload Task
+```swift
+let uploadTask = session.uploadTask(with: request, fromFile: fileURL)
+uploadTask.resume()
+
+gurad let resumeData = await uploadTask.cancleByProducingResumeData() else {
+        //Upload cannot be resumed
+        return 
+}
+
+let newUploadTask = session.uploadTask(withResumeData: resumeData)
+newUploadTask.resume()
+```
+
+```swift
+do {
+        let (url, response) = try await session.uploadTask(with: request, fromFile: fileURL)
+} catch let error as URLError {
+        gurad let resumeData = await uploadTask.cancleByProducingResumeData() else {
+        //Download cannot be resumed
+                return 
+        }
+}
+```
+---
 ### 2023.06.21
 ### resumable download
 ```swift
