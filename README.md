@@ -1,5 +1,20 @@
 # TIL
 Today I learned...
+### 2023.06.25
+### DFS
+func combinations<T>(array: [T], currentCombination: [T], index: Int, combinations: inout [[T]]) {
+    if index >= array.count {
+        combinations.append(currentCombination)
+        return
+    }
+    
+    for i in index..<array.count {
+        var newCombination = currentCombination
+        newCombination.append(array[i])
+        combinations(array: array, currentCombination: newCombination, index: i + 1, combinations: &combinations)
+    }
+}
+
 ### 2023.06.22
 ### upload Task
 ```swift
