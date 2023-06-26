@@ -1,5 +1,58 @@
 # TIL
 Today I learned...
+### 2023.06.26
+### SwiftNIO
+1. NIO import
+2. `EventLoopGroup` 생성
+```swift
+import NIO
+
+let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
+```
+3. BootStrap 설정
+```swift
+let bootstrap = ServerBootstrap(group: eventLoopGroup)
+    .childChannelInitializer { channel in
+        channel.pipeline.addHandler(MyServerHandler())
+    }
+    .bind(host: "localhost", port: 8080)
+    .whenComplete { result in
+        switch result {
+        case .success:
+            print("Server started on port 8080")
+        case .failure(let error):
+            print("Failed to start server: \(error)")
+        }
+    }
+```
+4. ChannelHandler
+```swift 
+class MyServerHandler: ChannelInboundHandler {
+    typealias InboundIn = ByteBuffer
+    typealias OutboundOut = ByteBuffer
+
+    func channelRead(context: ChannelHandlerContext, data: NIOAny) {
+        let receivedData = unwrapInboundIn(data)
+        // 수신한 데이터 처리
+        // 응답 생성
+        let response = context.channel.allocator.buffer(string: "Hello, client!")
+        let responseWrapper = wrapOutboundOut(response)
+        context.writeAndFlush(responseWrapper, promise: nil)
+    }
+
+    // 다른 이벤트 처리 메서드들...
+}
+```
+### 사용
+```swift
+do {
+    try bootstrap?.sync().wait()
+    try eventLoopGroup?.syncShutdownGracefully()
+} catch {
+    print("An error occurred: \(error)")
+}
+```
+---
 ### 2023.06.25
 ### DFS
 func combinations<T>(array: [T], currentCombination: [T], index: Int, combinations: inout [[T]]) {
