@@ -1,6 +1,28 @@
 # TIL
 Today I learned...
-### 2023.06.26
+### 2023.06.28
+### SwiftNIO BootStrap
+- SwiftNIO에서 제공하는 편리한 팩토리 클래스
+- SwiftNIO 클라이언트 측 또는 서버 측 SwiftNIO 초기화를 완료하는 데 사용할 수 있음
+- 전송 계층(소켓 모드 및 IO 종류), 이벤트 루프(싱글 쓰레드, 멀티 쓰레드), 채널 파이프라인 설정, 소켓 주소와 포트, 소켓 옵션 등을 설정할 수 있음
+```swift
+//클라이언트
+let bootstrap = ClientBootstrap()
+bootstrap.group(NIOEventLoopGroup(numberOfThreads: 1))
+bootstrap.channel(NIOSocketChannel.self)
+bootstrap.handler(MyChannelInitializer())
+
+bootstrap.connect(host: "localhost", port: 8080)
+
+//서버
+let bootstrap = ServerBootstrap()
+bootstrap.group(NIOEventLoopGroup(numberOfThreads: 1))
+bootstrap.channel(NIOServerSocketChannel.self)
+bootstrap.childHandler(MyChannelInitializer())
+
+bootstrap.bind(host: "localhost", port: 8080)
+```
+---
 ### 2023.06.27
 ### SwiftNIO EventLoop
 1. Channel이 생성됨(ChannelActive): 클라이언트와 서버 간의 연결이 설정되고, 새로운 Channel 객체가 만들어질 때 발생하는 이벤트입니다. 이 이벤트를 통해 초기화 작업을 수행하거나 상태를 설정할 수 있습니다.
@@ -13,6 +35,7 @@ Today I learned...
 
 5. 예외 발생(ChannelError): 네트워크 작업 중에 오류가 발생했을 때 발생하는 이벤트입니다. 오류를 처리하고 적절한 조치를 취할 수 있습니다.
 ---
+### 2023.06.26
 ### SwiftNIO
 1. NIO import
 2. `EventLoopGroup` 생성
