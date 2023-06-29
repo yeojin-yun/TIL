@@ -1,5 +1,11 @@
 # TIL
 Today I learned...
+### 2023.06.29
+### @Main
+- SwiftUI에서 사용되는 속성
+- 앱의 메인 스레드에서 코드를 실행하도록 보장
+- SwiftUI 또한 UI 코드가 메인 스레드에서 실행되어야 하기 때문에 @Main 키워드가 필요
+---
 ### 2023.06.28
 ### SwiftNIO BootStrap
 - SwiftNIO에서 제공하는 편리한 팩토리 클래스
