@@ -1,5 +1,21 @@
 # TIL
 Today I learned...
+### 2023.07.06
+### 디바이스 기기 해상도 및 dpi 변경 명령어
+```Shell
+// 1. 현재 기기의 dpi 및 해상도
+adb shell wm density
+adb shell wm size
+
+// 2. dpi 및 해상도 변경
+adb shell wm size 832x2268
+adb shell wm density 393
+
+// 3. 다시 원래 기기로 돌아오기
+adb shell wm density reset
+adb shell wm size reset
+```
+---
 ### 2023.06.29
 ### @Main
 - SwiftUI에서 사용되는 속성
