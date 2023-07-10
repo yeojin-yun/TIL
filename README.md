@@ -1,5 +1,11 @@
 # TIL
 Today I learned...
+### 2023.07.10
+### flutter build command
+```shell
+flutter build appbundle
+```
+---
 ### 2023.07.06
 ### 디바이스 기기 해상도 및 dpi 변경 명령어
 ```Shell
