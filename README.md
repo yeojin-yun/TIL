@@ -1,5 +1,13 @@
 # TIL
 Today I learned...
+### 2023.07.11
+### Stack vs. Queue
+- Stack : First Input Last Output의 형태
+    - [1, 2, 3, 4, 5]가 input으로 들어갔을 때, [5, 4, 3, 2, 1]로 output이 나오는 형태
+- Queue: First Input First Input의 형태
+    - [1, 2, 3, 4, 5]가 input으로 들어갔을 때, [1, 2, 3, 4, 5]로 output이 나오는 형태
+- 다른 언어와 달리 Swift에는 Stack과 Queue의 개념이 없음 
+---
 ### 2023.07.10
 ### flutter build command
 ```shell
