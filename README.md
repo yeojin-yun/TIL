@@ -1,5 +1,12 @@
 # TIL
 Today I learned...
+### 2023.07.12
+### Deque
+- Swift-collection 패키지에 Deque라는 개념이 있음
+    - swift-collection은 swift의 표준 라이브러리에 포함되지 않는 컬렌션을 제공하는 패키지
+- Deque는 Queue와 유사하지만 앞과 뒤에서 요소를 뺄 수 있다는 점이 다름
+- Deque를 이용해 Stack과 Queue를 만들어 사용할 수 있음
+---
 ### 2023.07.11
 ### Stack vs. Queue
 - Stack : First Input Last Output의 형태
