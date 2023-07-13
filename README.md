@@ -1,5 +1,27 @@
 # TIL
 Today I learned...
+### 2023.07.13
+### stride 함수
+```swift
+for i in stride(from: 0, to: 10, by: 2) {
+    print(i)
+}
+
+/*
+0
+2
+4
+6
+8
+*/
+```
+### string을 string array로 변환하기
+```swift
+let str = "Hello"
+let characters = str.map { String($0) }
+print(characters) // ["H", "e", "l", "l", "o"]
+```
+---
 ### 2023.07.12
 ### Deque
 - Swift-collection 패키지에 Deque라는 개념이 있음
