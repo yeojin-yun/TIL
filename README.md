@@ -1,5 +1,11 @@
 # TIL
 Today I learned...
+### 2023.07.19
+### adb로 URI scheme Test 방법
+```shell
+adb shell am start -W -a android.intent.action.VIEW -d "kakao${카카오앱키}://kakaolink" com.photypeta.photypetaApp
+```
+---
 ### 2023.07.17
 ### hanoi 함수
 - f(n)개의 원반인 경우, f(n)을 구하는 식은
