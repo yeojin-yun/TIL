@@ -1,5 +1,18 @@
 # TIL
 Today I learned...
+### 2023.07.20
+### dynamic link intent
+```
+<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <data android:scheme="https" android:host="flutterphotypeta.page.link"/>
+    <data android:scheme="http" android:host="flutterphotypeta.page.link"/>
+</intent-filter>
+```
+---
 ### 2023.07.19
 ### adb로 URI scheme Test 방법
 ```shell
