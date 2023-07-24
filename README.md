@@ -1,5 +1,152 @@
 # TIL
 Today I learned...
+### 2023.07.24
+### webview_flutter
+```Dart
+import 'dart:async';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:flutter_photypeta/model/pay_model.dart';
+import 'package:flutter_photypeta/onboarding/subscription_complete.dart';
+import 'package:flutter_photypeta/session/user_session.dart';
+import 'package:flutter_photypeta/utils/api_service.dart';
+import 'package:flutter_photypeta/utils/constant.dart';
+import 'package:flutter_photypeta/utils/prefs_singleton.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+import '../utils/formatHelper.dart';
+
+class PayView extends StatefulWidget {
+  PayView(
+      {super.key,
+      required this.payUrl,
+      required this.payple,
+      required this.pollingURL});
+  final String payUrl;
+  final bool payple;
+  final String pollingURL;
+
+  @override
+  State<PayView> createState() => _PayViewState();
+}
+
+class _PayViewState extends State<PayView> {
+  ///apiService
+  final apiService = ApiService();
+
+  Timer? _timer;
+  final int pollingIntervalInSeconds = 2;
+  // Adjust the polling interval as needed
+
+  bool _isLoading = true;
+
+  //🚨 1 🚨
+  static const platform = MethodChannel("photypeta.com/kakaopay");
+
+  WebViewController? _webViewController;
+  @override
+  void initState() {
+    
+    _webViewController = WebViewController()
+
+      ..loadRequest(Uri.parse(widget.payUrl))
+      ..setNavigationDelegate(
+                //🚨 2 🚨
+        NavigationDelegate(
+
+          onProgress: (int progress) {
+            debugPrint('⚠️️⚠️WebView is loading (progress : $progress%)');
+
+          },
+          onPageStarted: (String url) {
+            debugPrint('Page started loading: $url');
+          },
+
+          onPageFinished: (String url) {
+            debugPrint('⚠️️⚠️️⚠️️⚠️️Page finished loading: $url');
+            setState(() {
+              _isLoading = false;
+            });
+          },
+
+          onNavigationRequest: (NavigationRequest request) {
+              if (Platform.isAndroid) {
+                              //🚨 3 🚨
+                if (isAppLink(request.url)) {
+                  getAppURL(request.url);
+                  return NavigationDecision.prevent;
+                } else {
+                  return NavigationDecision.navigate;
+                }
+              }
+            return NavigationDecision.navigate;
+          },
+
+          onUrlChange: (UrlChange change) {
+            debugPrint('url change to ${change.url}');
+          },
+        ),
+      )
+      ..setJavaScriptMode(JavaScriptMode.unrestricted);
+    _startPolling();
+    super.initState();
+  }
+
+
+  //🚨 4 🚨
+  bool isAppLink(String url) {
+    final appScheme = Uri.parse(url).scheme;
+    return appScheme != 'http' && appScheme != 'https' && appScheme != 'about:blank' && appScheme != 'data';
+  }
+
+  //🚨 5 🚨
+  Future getAppURL(String url) async {
+    await platform.invokeMethod('getAppUrl', <String, Object>{ 'url': url }).then((value) async {
+      if (await canLaunchUrl(Uri.parse(value))) {
+        await launchUrl(Uri.parse(value), mode: LaunchMode.externalApplication);
+        return;
+      } else {
+        await platform.invokeMethod('getMarketUrl', <String, Object>{ 'url' : url }).then((marketUrl) async {
+          await launchUrl(Uri.parse(marketUrl));
+        });
+      }
+    });
+  }
+
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _startPolling() {
+    _timer = Timer.periodic(Duration(seconds: pollingIntervalInSeconds), (_) {
+      _fetchData(widget.pollingURL); // Perform the polling operation
+    });
+  }
+
+  void _fetchData(String pollingURL) async {
+    ...
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(children: [
+        WebViewWidget(controller: _webViewController!),
+        _isLoading ? Center(child: CircularProgressIndicator(color: Colors.grey,)) : SizedBox.shrink()
+      ])
+    );
+  }
+}
+```
+---
 ### 2023.07.23
 ### Method Channel
 ```Dart
@@ -68,20 +215,6 @@ class MainActivity: FlutterActivity() {
             } else {
                 result.notImplemented()
             }
-//            when {
-//                call.method.equals("getAppUrl") -> {
-//                    try {
-//                        val url: String = call.argument("url")!!
-//                        val intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME)
-//                        Log.i("Method Channel", url)
-//                        result.success(intent.dataString)
-//                    } catch (e: URISyntaxException) {
-//                        result.notImplemented()
-//                    } catch (e: ActivityNotFoundException) {
-//                        result.notImplemented()
-//                    }
-//                }
-//            }
         }
     }
 }
