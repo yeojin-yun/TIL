@@ -1,5 +1,31 @@
 # TIL
 Today I learned...
+### 2023.07.26
+```swift
+    var photosPickedFromUser: [Data?] {
+        var imgDataArray: [Data?] = []
+        //var imgArray = [UIImage]()
+        let options = PHImageRequestOptions()
+        options.deliveryMode = .highQualityFormat
+        options.isSynchronous = true
+        options.version = .current
+        options.isNetworkAccessAllowed = true
+        
+        let fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: fetchResultToIdentifier, options: nil)
+        
+        fetchResult.enumerateObjects { asset, _, _ in
+            if asset.mediaType == PHAssetMediaType.image {
+                PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: options) { image, _ in
+                    if let image = image {
+                        imgDataArray.append(image.jpegData(compressionQuality: 1.0))
+                    }
+                }
+            }
+        }
+        return imgDataArray
+    }
+```
+---
 ### 2023.07.25
 ### 코딩테스트 알고리즘 - 백트래킹
 1. 모든 경우의 수를 확인해야 하는데, for문만으로는 확인이 불가할 떄 (input만큼 for문을 돌려야 할 수도 있는데, 그건 무리)
