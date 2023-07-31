@@ -1,5 +1,20 @@
 # TIL
 Today I learned...
+### 2023.07.31
+### java
+- 자바 버전 확인하기
+``Shell
+java -version
+```
+- 자바 위치 확인하기
+``Shell
+/usr/libexec/java_home -V
+```
+- 자바 경로 설정
+``Shell
+vi ~/.zshrc
+```
+---
 ### 2023.07.26
 ```swift
     var photosPickedFromUser: [Data?] {
