@@ -1,5 +1,16 @@
 # TIL
 Today I learned...
+### 2023.08.07
+```Dart
+int makeMilkShake() {
+    return a + b
+}
+```
+- return문만 있을 때는 `=>`를 써서 요약할 수 있음
+```Dart
+int get mildshake => a + b
+```
+---
 ### 2023.07.31
 ### java
 - 자바 버전 확인하기
