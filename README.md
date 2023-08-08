@@ -1,5 +1,13 @@
 # TIL
 Today I learned...
+### 2023.08.08
+### sql 문
+```sql
+drop database photypeta;
+create database photypeta character set utf8mb4 collate utf8mb4_general_ci;
+use 데이터베이스명;
+```
+---
 ### 2023.08.07
 ```Dart
 int makeMilkShake() {
