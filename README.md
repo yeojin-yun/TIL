@@ -1,5 +1,9 @@
 # TIL
 Today I learned...
+### 2023.08.21
+### flutter ios build 버전 바꾸기
+    - [Runner] - [TARGETS] - [Build Settings] - [User-Defined] - [FLUTTER_BUILD_NAME]
+---
 ### 2023.08.08
 ### sql 문
 ```sql
