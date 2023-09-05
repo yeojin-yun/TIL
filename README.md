@@ -1,5 +1,15 @@
 # TIL
 Today I learned...
+### 2023.09.05
+### firebase remote config
+```Dart
+final remoteConfig = FirebaseRemoteConfig.instance;
+await remoteConfig.setConfigSettings(RemoteConfigSettings(
+    fetchTimeout: const Duration(minutes: 1),
+    minimumFetchInterval: const Duration(hours: 1),
+));
+```
+---
 ### 2023.09.04
 ### interceptor vs queue interceptor 
 Dio interceptor는 모든 요청 및 응답에 적용되며 실행 순서가 무작위지만, Queue interceptor는 큐에 추가된 요청 및 응답에만 적용되며 큐에 추가된 순서대로 실행된다. Queue interceptor는 특정 요청 및 응답에만 적용되기 때문에, 특정 요청 및 응답에 대한 처리를 중간에 개입할 때 유용합니다. 예를 들어, 특정 요청에 대한 헤더를 추가하거나, 특정 응답에 대한 오류 처리를 수행하는 데 사용할 수 있습니다.
