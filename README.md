@@ -1,5 +1,17 @@
 # TIL
 Today I learned...
+### 2023.09.06
+### showModalBottomSheet
+```Dart
+showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {
+        return Container();
+    }
+);
+```
+- CupertinoBottomSheet는 swift의 modal present와 동일하게 올라옴
+---
 ### 2023.09.05
 ### firebase remote config
 ```Dart
