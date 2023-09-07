@@ -1,5 +1,17 @@
 # TIL
 Today I learned...
+### 2023.09.07
+```Dart
+Wrap(
+      direction: Axis.vertical, // 정렬 방향
+      alignment: WrapAlignment.start, // 정렬 방식
+      spacing: 10,  // 상하(좌우) 공간
+      runSpacing: 10, // 좌우(상하) 공간
+      children: List.generate(9, (i)=>WsmBoxWidget(color:Colors.pink[(i+1)*100]))
+      // WsmBoxWidget()
+    );
+```
+---
 ### 2023.09.06
 ### showModalBottomSheet
 ```Dart
