@@ -1,5 +1,31 @@
 # TIL
 Today I learned...
+### 2023.09.11
+### Draggable Widget
+```Dart
+Draggable<Color>(
+  data: Color(0x000000ff),
+  child: MyBlueBox(),
+  feedback: MyRoundedBlueBox(),
+  childWhenDragging: MyGreyBox()
+)
+
+DragTarget<Color>(
+  onWillAccept: (value) => value != Colors.black,
+  onAccept: (valute) { 
+    //Update app state
+  },
+  onLeave: (value) {
+    //Alert the user their value didn't lant
+  },
+  builder: (context, candidates, rejects) {
+    return candidates.length > 0
+    ? MyBigColorfulBlueBox(candidates[0])
+    : MyDashedOutLineBox()
+  }
+)
+```
+---
 ### 2023.09.07
 ```Dart
 Wrap(
