@@ -1,5 +1,11 @@
 # TIL
 Today I learned...
+### 2023.09.12
+### flutter ios build version 변경
+- [Target] - [Build Setting] - [User Definde] 
+- [FLUTTER_BUILD_NAME] : 빌드 버전
+- [FLUTTER_BUILD_NUMBER] : 빌드 넘버
+---
 ### 2023.09.11
 ### Draggable Widget
 ```Dart
