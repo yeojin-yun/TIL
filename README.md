@@ -1,5 +1,35 @@
 # TIL
 Today I learned...
+### 2023.09.13
+### showBottomSheet
+- BottomNavigationBarItem을 가리지 않으면서 present가 됨
+```Dart
+showBottomSheet(
+  context: context,
+  builder: (context) {
+    return Container(
+      color: Colors.amber,
+      height: 300,
+    );
+  },
+);
+```
+
+### showModalBottomSheet
+- BottomNavigationBarItem을 가리면서 present가 됨
+```Dart
+showModalBottomSheet(
+  backgroundColor: Colors.transparent
+  context: context,
+  builder: (context) {
+    return Container(
+      color: Colors.amber,
+      height: 300,
+    );
+  },
+);
+```
+---
 ### 2023.09.12
 ### flutter ios build version 변경
 - [Target] - [Build Setting] - [User Definde] 
