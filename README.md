@@ -1,5 +1,25 @@
 # TIL
 Today I learned...
+### 2023.09.14
+### BottomSheet의 setStatus({});
+- BottomSheet에서 UI변경이 일어날 때 setStatus({});를 아무리 해도 UI 변경이 일어나지 않음
+- BottomSheet에서 UI 변경을 위해서는 StatefulBuilder를 사용하고 setStatus 대신 bottomState를 사용
+- BottomSheet 아래 원래 class widget의 UI의 변경까지 원한다면 setStatus를 별도로 해줘야 함
+```Dart
+showModalBottomSheet(
+  context: context,
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.vertical(
+      top: Radius.circular(30),
+    ),
+  ),
+  builder: (BuildContext context) {
+    return StatefulBuilder(builder: (BuildContext context, StateSetter bottomState) {
+      return Container();
+  }
+);               
+```
+---
 ### 2023.09.13
 ### showBottomSheet
 - BottomNavigationBarItem을 가리지 않으면서 present가 됨
