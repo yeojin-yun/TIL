@@ -1,5 +1,10 @@
 # TIL
 Today I learned...
+### 2023.09.18
+### AssetEntityImage
+- 5개 사진만 홈 화면에 띄울 때는 문제가 없었지만, 용량이 큰 사진을 5장 이상 띄우니, 앱이 멈추는 현상이 발생
+- AssetEntityImage의 속성 중 isOriginal 속성(기본값 true)을 false로 바꿔주니 멈추는 현상 사라짐
+---
 ### 2023.09.14
 ### BottomSheet의 setStatus({});
 - BottomSheet에서 UI변경이 일어날 때 setStatus({});를 아무리 해도 UI 변경이 일어나지 않음
