@@ -1,5 +1,25 @@
 # TIL
 Today I learned...
+### 2023.09.20
+### WillPopScope
+- 뒤로 가기를 못하게 하는 기능
+
+```Dart
+return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter WillPopScope demo'),
+        ),
+        body: Center(
+          child: Container(),
+        ),
+      ),
+    );
+```
+---
 ### 2023.09.18
 ### AssetEntityImage
 - 5개 사진만 홈 화면에 띄울 때는 문제가 없었지만, 용량이 큰 사진을 5장 이상 띄우니, 앱이 멈추는 현상이 발생
