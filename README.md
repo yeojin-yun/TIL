@@ -1,5 +1,73 @@
 # TIL
 Today I learned...
+### 2023.09.21
+### ListView와 ScrollController 사용하여 현재 인덱스 확인하기
+- ScrollController 선언
+```Dart
+final ScrollController _scrollController = ScrollController();
+```
+
+- initState에서 Listener 설정
+```Dart
+  @override
+  void initState() {
+    super.initState();
+
+    _scrollController.addListener(() {
+      setState(() {
+      // 현재 전체 item을 이어붙인 길이를 화면의 width로 나와서 현재 인덱스 계산
+        _selectedItemIndex = (_scrollController.position.pixels /
+                MediaQuery.of(context).size.width)
+            .round();
+      });
+    });
+  }
+
+```
+
+- ListView Builder의 controller로 설정
+```Dart
+child: ListView.builder(
+                    controller: _scrollController,
+                    itemCount: _selectedAsset.length,
+                    scrollDirection: Axis.horizontal,
+                    physics: PageScrollPhysics(),
+                    itemExtent: width,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return _selectedAsset.length > 0
+                          ? Container(
+                              color: Colors.green,
+                              padding:
+                                  const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                              child: GestureDetector(
+                                onTap: () {
+                                  debugPrint('tap tap');
+                                },
+                                onHorizontalDragUpdate: (details) {
+                                  debugPrint(
+                                      'update update ${details.globalPosition}');
+                                },
+                                onHorizontalDragStart: (details) {
+                                  debugPrint('start ${index}');
+                                },
+                                child: AssetEntityImage(
+                                  _selectedAsset[_selectedItemIndex],
+                                  fit: BoxFit.contain,
+                                  alignment: Alignment.bottomCenter,
+
+                                  // width: MediaQuery.of(context).size.width + 30,
+                                ),
+                              ),
+                            )
+                          : Container(
+                              color: Color(0xFFF9F9F9),
+                            );
+                    },
+                  )
+
+```
+---
 ### 2023.09.20
 ### WillPopScope
 - 뒤로 가기를 못하게 하는 기능
