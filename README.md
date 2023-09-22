@@ -1,5 +1,32 @@
 # TIL
 Today I learned...
+### 2023.09.22
+### share_plus package
+1. 페키지 추가
+2. 텍스트 share 경우
+```Dart
+///기본 사용
+Share.share('check out my website https://example.com');
+
+///Share에 대한 결과도 받을 수 있음
+final result = await Share.shareWithResult('check out my website https://example.com');
+
+if (result.status == ShareResultStatus.success) {
+    print('Thank you for sharing my website!');
+}
+```
+
+3. 이미지 공유할 때
+```Dart
+final result = await Share.shareXFiles(['${directory.path}/image.jpg'], text: 'Great picture');
+
+if (result.status == ShareResultStatus.success) {
+    print('Thank you for sharing the picture!');
+}
+
+4. XFile.fromData를 쓰지 말라는 공식 문서 언급이 있어, byte로 변환해서 XFile을 이용하도록
+```
+---
 ### 2023.09.21
 ### ListView와 ScrollController 사용하여 현재 인덱스 확인하기
 - ScrollController 선언
