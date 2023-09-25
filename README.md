@@ -1,5 +1,74 @@
 # TIL
 Today I learned...
+### 2023.09.25
+### Stepper Widget
+- Swift의 Stepper와 다르게 단계별 스텝을 설명할 때 유용한 위젯
+```Dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter Stepper Example'),
+        ),
+        body: MyStepper(),
+      ),
+    );
+  }
+}
+
+class MyStepper extends StatefulWidget {
+  @override
+  _MyStepperState createState() => _MyStepperState();
+}
+
+class _MyStepperState extends State<MyStepper> {
+  int _currentStep = 0;
+
+  List<Step> steps = [
+    Step(
+      title: Text('Step 1'),
+      content: Text('This is step 1 content.'),
+    ),
+    Step(
+      title: Text('Step 2'),
+      content: Text('This is step 2 content.'),
+    ),
+    Step(
+      title: Text('Step 3'),
+      content: Text('This is step 3 content.'),
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Stepper(
+      currentStep: _currentStep,
+      onStepContinue: () {
+        if (_currentStep < steps.length - 1) {
+          setState(() {
+            _currentStep += 1;
+          });
+        }
+      },
+      onStepCancel: () {
+        if (_currentStep > 0) {
+          setState(() {
+            _currentStep -= 1;
+          });
+        }
+      },
+      steps: steps,
+    );
+  }
+}
+```
+---
 ### 2023.09.22
 ### share_plus package
 1. 페키지 추가
