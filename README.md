@@ -1,5 +1,18 @@
 # TIL
 Today I learned...
+### 2023.09.26
+### url_launcher package
+- 보통의 사용법
+```Dart
+if (await canLaunchUrl(Uri.parse(url))) {
+  await launchUrl(Uri.parse(url), mode: LaunchMode.inAppWebView);
+  return;
+}
+```
+- mode는 총 2가지가 존재
+    - inAppWebView : 앱 내에서 열기
+    - externalApplication : 외부 앱(브라우저)을 이용해서 열기
+---
 ### 2023.09.25
 ### Stepper Widget
 - Swift의 Stepper와 다르게 단계별 스텝을 설명할 때 유용한 위젯
