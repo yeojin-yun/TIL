@@ -1,5 +1,40 @@
 # TIL
 Today I learned...
+### 2023.10.10
+### share image in flutter
+```Dart
+  _shareImage() async {
+    setState(() {
+      isLoading = true;
+    });
+    debugPrint('${widget.imgUrlList.length}');
+    debugPrint('${widget.selectedIndex}');
+    debugPrint(widget.imgUrlList[widget.selectedIndex]);
+
+    final files = <XFile>[];
+    ShareResult shareResult;
+    try {
+      var response = await Dio().get(widget.imgUrlList[widget.selectedIndex],
+          options: Options(responseType: ResponseType.bytes));
+      final bytes = Uint8List.fromList(response.data);
+      final tempDir = await getTemporaryDirectory();
+      final tempFile = File('${tempDir.path}/image.jpg');
+      await tempFile.writeAsBytes(bytes);
+      //debugPrint('byte: $bytes');
+      files.add(XFile(tempFile.path));
+    } catch (error) {
+      debugPrint('$error');
+    }
+    logger.i(files.length);
+    setState(() {
+      isLoading = false;
+    });
+    shareResult = await Share.shareXFiles(files);
+    if (shareResult.status == ShareResultStatus.success) {
+      _showToast('공유에 성공했어요!');
+    }
+  }
+```
 ### 2023.09.26
 ### url_launcher package
 - 보통의 사용법
