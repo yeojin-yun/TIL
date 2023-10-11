@@ -1,5 +1,22 @@
 # TIL
 Today I learned...
+### 2023.10.11
+### Dart 문자열에서 마지막 '/' 뒤에 문자만 남기기
+```Dart
+file.path.split('/').last
+```
+- Dart 문자열에서 확장자 지우는 방법
+```Dart
+void main() {
+  String filename = '1_0001109_0001109_20230925_192624.heic';
+
+  // 파일 이름에서 마지막 . 앞까지 잘라냅니다.
+  String withoutExtension = filename.substring(0, filename.lastIndexOf('.'));
+
+  print(withoutExtension);
+}
+```
+---
 ### 2023.10.10
 ### share image in flutter
 ```Dart
