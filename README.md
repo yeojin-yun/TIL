@@ -400,15 +400,15 @@ int get mildshake => a + b
 ### 2023.07.31
 ### java
 - 자바 버전 확인하기
-``Shell
+```shell
 java -version
 ```
 - 자바 위치 확인하기
-``Shell
+```shell
 /usr/libexec/java_home -V
 ```
 - 자바 경로 설정
-``Shell
+```shell
 vi ~/.zshrc
 ```
 ---
@@ -447,53 +447,17 @@ vi ~/.zshrc
 ---
 ### 2023.07.24
 ### webview_flutter
+1. method channel 선언
 ```Dart
-import 'dart:async';
-import 'dart:io';
-
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import 'package:flutter_photypeta/model/pay_model.dart';
-import 'package:flutter_photypeta/onboarding/subscription_complete.dart';
-import 'package:flutter_photypeta/session/user_session.dart';
-import 'package:flutter_photypeta/utils/api_service.dart';
-import 'package:flutter_photypeta/utils/constant.dart';
-import 'package:flutter_photypeta/utils/prefs_singleton.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-
-import '../utils/formatHelper.dart';
-
-class PayView extends StatefulWidget {
-  PayView(
-      {super.key,
-      required this.payUrl,
-      required this.payple,
-      required this.pollingURL});
-  final String payUrl;
-  final bool payple;
-  final String pollingURL;
-
-  @override
-  State<PayView> createState() => _PayViewState();
-}
-
-class _PayViewState extends State<PayView> {
-  ///apiService
-  final apiService = ApiService();
-
-  Timer? _timer;
-  final int pollingIntervalInSeconds = 2;
-  // Adjust the polling interval as needed
-
-  bool _isLoading = true;
-
-  //🚨 1 🚨
-  static const platform = MethodChannel("photypeta.com/kakaopay");
-
+  static const platform = MethodChannel("methodChannel.com/pay");
+```
+2. WebViewController 선언
+```Dart
   WebViewController? _webViewController;
+```
+
+3. webView init
+```Dart
   @override
   void initState() {
     
@@ -538,11 +502,11 @@ class _PayViewState extends State<PayView> {
         ),
       )
       ..setJavaScriptMode(JavaScriptMode.unrestricted);
-    _startPolling();
     super.initState();
   }
-
-
+```
+4. App Link인지 확인 -> AppLink면 메서드 채널 이용해서 웹뷰 오픈
+```Dart
   //🚨 4 🚨
   bool isAppLink(String url) {
     final appScheme = Uri.parse(url).scheme;
@@ -562,24 +526,9 @@ class _PayViewState extends State<PayView> {
       }
     });
   }
-
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
-
-  void _startPolling() {
-    _timer = Timer.periodic(Duration(seconds: pollingIntervalInSeconds), (_) {
-      _fetchData(widget.pollingURL); // Perform the polling operation
-    });
-  }
-
-  void _fetchData(String pollingURL) async {
-    ...
-  }
-
+```
+5. 웹뷰 위젯에 _webViewController 할당
+```Dart
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -589,13 +538,13 @@ class _PayViewState extends State<PayView> {
       ])
     );
   }
-}
 ```
 ---
 ### 2023.07.23
 ### Method Channel
+- app > src > main > MainActivity.kt
 ```Dart
-package com.photypeta.photypetaApp
+package com.example.myApp
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -612,7 +561,7 @@ import java.net.URISyntaxException
 
 
 class MainActivity: FlutterActivity() {
-    private val CHANNEL = "photypeta.com/kakaopay"
+    private val CHANNEL = "methodChannel.com/pay"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -674,15 +623,15 @@ class MainActivity: FlutterActivity() {
     <category android:name="android.intent.category.DEFAULT" />
     <category android:name="android.intent.category.BROWSABLE" />
 
-    <data android:scheme="https" android:host="flutterphotypeta.page.link"/>
-    <data android:scheme="http" android:host="flutterphotypeta.page.link"/>
+    <data android:scheme="https" android:host="dynamicLink.page.link"/>
+    <data android:scheme="http" android:host="dynamicLink.page.link"/>
 </intent-filter>
 ```
 ---
 ### 2023.07.19
 ### adb로 URI scheme Test 방법
 ```shell
-adb shell am start -W -a android.intent.action.VIEW -d "kakao${카카오앱키}://kakaolink" com.photypeta.photypetaApp
+adb shell am start -W -a android.intent.action.VIEW -d "kakao${카카오앱키}://kakaolink" com.example.myApp
 ```
 ---
 ### 2023.07.17
