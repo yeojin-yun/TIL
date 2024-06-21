@@ -1,5 +1,46 @@
 # TIL
 Today I learned...
+### 2024.06.21
+### FutureProvider
+1. FutureProvider 사용시점
+- 위젯 트리는 빌드가 되었는데, 사용하고자 하는 값이 아직 준비가 안됐을 때
+- 사용빈도는 낮음
+```Dart
+FutureProvider(
+  Key? key,
+  required Create<Future<T>?> create, 
+  required T initialData,
+  ...
+)
+```
+- `Future` 결과가 나오기 전까지 `initialData`를 표시하고, `Future` 결과가 나오면 다시 리빌드(함
+    - `initialData`로 빌드 1번 + 결과 나온 후 빌드 1번 ⇒ 총 2번의 빌드가 이루어짐
+- `Future`를 반환하기 때문에 `try-catch`로 에러 처리할 것
+
+2. 사용 예시
+```Dart
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<Dog>(
+            create: (context) => Dog(name: '뭉치', breed: '파피용', age: 3)),
+        //FutureProvider는 Future의 return value를 타입으로 가짐 -> 그래서 타입이 int
+        FutureProvider<int>(
+            create: (context) {
+              //ChangeNotifierProvider가 FutureProvider 상위 위젯이기 때문에 가능
+              final int dogAge = context.read<Dog>().age;
+              final babies = Babys(age: dogAge);
+              return babies.getBabies();
+            },
+            initialData: 0),
+      ],
+      child: MaterialApp(
+        ...
+      ),
+    );
+  }
+```
+---
 ### 2023.10.11
 ### Dart 문자열에서 마지막 '/' 뒤에 문자만 남기기
 ```Dart
